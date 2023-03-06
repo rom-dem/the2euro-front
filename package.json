@@ -22,6 +22,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --passWithNoTests",
+    "test:dev": "react-scripts test --watchAll --passWithNoTests",
+    "test:coverage": "react-scripts test --coverage --watchAll=false --passWithNoTests",
     "eject": "react-scripts eject",
     "prepare": "husky install"
   },
@@ -47,5 +49,15 @@
     "lint-staged": "^13.1.2",
     "prettier": "^2.8.4",
     "husky": "^8.0.0"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.ts",
+      "src/**/*.tsx",
+      "!src/index.tsx",
+      "!src/react-app-env.d.ts",
+      "!src/setupTests.ts",
+      "!src/reportWebVitals.ts"
+    ]
   }
 }
