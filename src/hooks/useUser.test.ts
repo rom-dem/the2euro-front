@@ -2,8 +2,8 @@ import { renderHook } from "@testing-library/react";
 import jwtDecode from "jwt-decode";
 import { Wrapper } from "../mocks/Wrapper";
 import { store } from "../store";
-import { User } from "../store/features/userSlice/types";
-import { loginUserActionCreator } from "../store/features/userSlice/userSlice";
+import { User } from "../store/features/users/userSlice/types";
+import { loginUserActionCreator } from "../store/features/users/userSlice/userSlice";
 import { CustomTokenPayload, UserCredentials } from "./types";
 import { useUser } from "./useUser";
 
