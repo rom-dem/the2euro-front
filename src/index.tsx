@@ -5,15 +5,21 @@ import { store } from "./store";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import "./styles/index.css";
+import { ThemeProvider } from "styled-components";
+import { theme } from "./styles/theme";
+import GlobalStyles from "./styles/GlobalStyles";
 
 const container = document.getElementById("root")!;
 const root = createRoot(container);
 
 root.render(
   <React.StrictMode>
-    <Provider store={store}>
-      <App />
-    </Provider>
+    <ThemeProvider theme={theme}>
+      <GlobalStyles />
+      <Provider store={store}>
+        <App />
+      </Provider>
+    </ThemeProvider>
   </React.StrictMode>
 );
 
