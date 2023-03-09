@@ -30,7 +30,8 @@ a:visited {
 button {
   font-family: inherit;
   font-size: inherit;
-  background-color: ${(props) => props.theme.palette.gray};
+  background-color: ${(props) => props.theme.palette.primary};
+  color: ${(props) => props.theme.palette.white};
   border-radius: ${(props) => props.theme.inputs.borderRadiusLarge};
   border: none;
   cursor: pointer;

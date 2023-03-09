@@ -96,12 +96,14 @@
   - coin was modified
   - coin couldn't be modified
 
-## User Form
+## Register Form
 
 - Receives the info to register a new user
 - Receives an action to register a new user
 - Shows a button "Register" to submit the form
 - On submit executes the function to register a new user
+
+## Login Form
 
 - Receives the info to login an existing user
 - Receives an action to login an existing user
