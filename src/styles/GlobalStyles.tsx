@@ -11,7 +11,8 @@ const GlobalStyles = createGlobalStyle`
 
 body {
   margin: 0px;
-  font-family: ${(props) => props.theme.fonts.text};
+  font-family: "Nunito Sans";
+  color: #303030
 }
 
 ul, 
@@ -30,11 +31,21 @@ a:visited {
 button {
   font-family: inherit;
   font-size: inherit;
-  background-color: ${(props) => props.theme.palette.gray};
-  border-radius: ${(props) => props.theme.inputs.borderRadiusLarge};
+  background-color: #303030;
+  color: #fff;
+  border-radius: 8px;
   border: none;
   cursor: pointer;
 }
+
+input {
+  font-family: inherit;
+  font-size: 1.125rem;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+}
+
 
 .cointainer {
   margin: 20px 
