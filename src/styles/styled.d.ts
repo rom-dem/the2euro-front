@@ -2,7 +2,7 @@ import "styled-components";
 
 declare module "styled-components" {
   export interface DefaultTheme {
-    palette: {
+    colour: {
       primary: string;
       secondary: string;
       white: string;
@@ -12,15 +12,16 @@ declare module "styled-components" {
     };
     fonts: {
       title: string;
-      titleFontSizeNormal: string;
-      titleFontSizeMid: string;
-      titleFontSizeBig: string;
+      titleFontSizeS: string;
+      titleFontSizeM: string;
+      titleFontSizeXL: string;
       text: string;
-      textFontSizeNormal: string;
-      textFontSizeMid: string;
-      textFontSizeBig: string;
+      textFontSizeS: string;
+      textFontSizeM: string;
+      textFontSizeL: string;
+      textFontSizeXL: string;
     };
-    inputs: {
+    border: {
       borderRadiusSmall: string;
       borderRadiusLarge: string;
     };

@@ -12,6 +12,7 @@ const GlobalStyles = createGlobalStyle`
 body {
   margin: 0px;
   font-family: ${(props) => props.theme.fonts.text};
+  color: ${(props) => props.theme.colour.primary}
 }
 
 ul, 
@@ -30,12 +31,21 @@ a:visited {
 button {
   font-family: inherit;
   font-size: inherit;
-  background-color: ${(props) => props.theme.palette.primary};
-  color: ${(props) => props.theme.palette.white};
-  border-radius: ${(props) => props.theme.inputs.borderRadiusLarge};
+  background-color: ${(props) => props.theme.colour.primary};
+  color: ${(props) => props.theme.colour.white};
+  border-radius: ${(props) => props.theme.border.borderRadiusLarge};
   border: none;
   cursor: pointer;
 }
+
+input {
+  font-family: inherit;
+  font-size: ${(props) => props.theme.fonts.textFontSizeM};
+  background-color: transparent;
+  border: none;
+  padding: 0;
+}
+
 
 .cointainer {
   margin: 20px 

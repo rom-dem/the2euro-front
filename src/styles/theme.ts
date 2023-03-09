@@ -1,25 +1,26 @@
 import { DefaultTheme } from "styled-components";
 
 export const theme: DefaultTheme = {
-  palette: {
+  colour: {
     primary: "#303030",
     secondary: "#242424",
     white: "#fff",
-    gray: "f5f5f5",
+    gray: "#f5f5f5",
     success: "#55b938",
     error: "#d65745",
   },
   fonts: {
     title: "Merriweather",
-    titleFontSizeNormal: "1.25rem",
-    titleFontSizeMid: "1.5rem",
-    titleFontSizeBig: "2.25rem",
+    titleFontSizeS: "1.25rem",
+    titleFontSizeM: "1.5rem",
+    titleFontSizeXL: "2.25rem",
     text: "Nunito Sans",
-    textFontSizeNormal: "1rem",
-    textFontSizeMid: "1.125rem",
-    textFontSizeBig: "1.875rem",
+    textFontSizeS: "1rem",
+    textFontSizeM: "1.125rem",
+    textFontSizeL: "1.5rem",
+    textFontSizeXL: "1.875rem",
   },
-  inputs: {
+  border: {
     borderRadiusSmall: "4px",
     borderRadiusLarge: "8px",
   },

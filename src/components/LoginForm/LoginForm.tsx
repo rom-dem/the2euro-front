@@ -1,6 +1,8 @@
+import LoginFormStyled from "./LoginFormStyled";
+
 const LoginForm = (): JSX.Element => {
   return (
-    <form className="form">
+    <LoginFormStyled className="form">
       <div className="form__pill">
         <label className="form__label">
           Email
@@ -25,7 +27,7 @@ const LoginForm = (): JSX.Element => {
         </label>
       </div>
       <button>Log in</button>
-    </form>
+    </LoginFormStyled>
   );
 };
 
