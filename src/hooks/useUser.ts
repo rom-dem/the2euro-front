@@ -6,7 +6,7 @@ import {
   UseUserStructure,
 } from "./types";
 import jwtDecode from "jwt-decode";
-import { loginUserActionCreator } from "../store/features/userSlice/userSlice";
+import { loginUserActionCreator } from "../store/features/users/userSlice/userSlice";
 
 export const useUser = (): UseUserStructure => {
   const apiUrl = process.env.REACT_APP_API_URL;
