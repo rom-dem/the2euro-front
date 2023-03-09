@@ -9,12 +9,12 @@ import jwtDecode from "jwt-decode";
 import { loginUserActionCreator } from "../store/features/userSlice/userSlice";
 
 export const useUser = (): UseUserStructure => {
-  const urlApi = process.env.REACT_APP_API_URL;
-  const pathLogin = "users/login";
+  const apiUrl = process.env.REACT_APP_API_URL;
+  const pathLogin = "/users/login";
   const dispatch = useAppDispatch();
 
   const loginUser = async (userCredentials: UserCredentials) => {
-    const response = await fetch(`${urlApi}${pathLogin}`, {
+    const response = await fetch(`${apiUrl}${pathLogin}`, {
       method: "POST",
       body: JSON.stringify(userCredentials),
       headers: { "Content-type": "application/json" },
