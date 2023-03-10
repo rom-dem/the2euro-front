@@ -1,9 +1,41 @@
+import { useState } from "react";
+import { UserCredentials } from "../../hooks/types";
+import useUser from "../../hooks/useUser";
 import Button from "../Button/Button";
 import LoginFormStyled from "./LoginFormStyled";
 
 const LoginForm = (): JSX.Element => {
+  const initialUserCredentials: UserCredentials = { email: "", password: "" };
+
+  const [userCredentials, setUserCredentials] = useState(
+    initialUserCredentials
+  );
+  const { loginUser } = useUser();
+
+  const handleChangeUserData = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setUserCredentials({
+      ...userCredentials,
+      [event.target.name]: event.target.value,
+    });
+  };
+
+  const handleOnSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const userLogin: UserCredentials = {
+      email: userCredentials.email,
+      password: userCredentials.password,
+    };
+
+    await loginUser(userLogin);
+
+    setUserCredentials({ ...initialUserCredentials });
+  };
+
+  const areFieldsEmpty =
+    userCredentials.email === "" || userCredentials.password === "";
+
   return (
-    <LoginFormStyled className="form">
+    <LoginFormStyled className="form" onSubmit={handleOnSubmit}>
       <div className="form__pill">
         <label className="form__label">
           Email
@@ -12,6 +44,7 @@ const LoginForm = (): JSX.Element => {
             name="email"
             autoComplete="off"
             placeholder="Introduce your email adress"
+            onChange={handleChangeUserData}
             className="form__input"
           />
         </label>
@@ -23,11 +56,12 @@ const LoginForm = (): JSX.Element => {
             type="password"
             name="password"
             placeholder="Introduce your password"
+            onChange={handleChangeUserData}
             className="form__input"
           />
         </label>
       </div>
-      <Button text={"Log in"} isDisabled={false} />
+      <Button text={"Log in"} isDisabled={areFieldsEmpty} />
     </LoginFormStyled>
   );
 };
