@@ -7,11 +7,7 @@ describe("Given a LoginForm component", () => {
     test("Then it should show a label with text 'Email'", () => {
       const expectedLabelText = /email/i;
 
-      renderWithProviders(
-        <>
-          <LoginForm />
-        </>
-      );
+      renderWithProviders(<LoginForm />);
       const labelEmail = screen.getByLabelText(expectedLabelText);
 
       expect(labelEmail).toBeInTheDocument();
@@ -21,11 +17,7 @@ describe("Given a LoginForm component", () => {
   test("Then it should show a label with text 'Password'", () => {
     const expectedLabelText = /password/i;
 
-    renderWithProviders(
-      <>
-        <LoginForm />
-      </>
-    );
+    renderWithProviders(<LoginForm />);
     const labelPassword = screen.getByLabelText(expectedLabelText);
 
     expect(labelPassword).toBeInTheDocument();
@@ -34,11 +26,7 @@ describe("Given a LoginForm component", () => {
   test("Then it should show 'Log in' button", () => {
     const expectedButtonText = /log in/i;
 
-    renderWithProviders(
-      <>
-        <LoginForm />
-      </>
-    );
+    renderWithProviders(<LoginForm />);
     const button = screen.getByRole("button", { name: expectedButtonText });
 
     expect(button).toBeInTheDocument();
