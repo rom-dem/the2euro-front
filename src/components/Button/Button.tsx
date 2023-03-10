@@ -1,10 +1,12 @@
+import ButtonStyled from "./ButtonStyled";
+
 interface ButtonProps {
   text: string;
   isDisabled: boolean;
 }
 
 const Button = ({ isDisabled, text }: ButtonProps): JSX.Element => {
-  return <button disabled={isDisabled}>{text}</button>;
+  return <ButtonStyled disabled={isDisabled}>{text}</ButtonStyled>;
 };
 
 export default Button;
