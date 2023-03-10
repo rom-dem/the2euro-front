@@ -1,6 +1,4 @@
 import { screen } from "@testing-library/react";
-import { ThemeProvider } from "styled-components";
-import { theme } from "../../styles/theme";
 import { renderWithProviders } from "../../testUtils";
 import LoginForm from "./LoginForm";
 
@@ -11,9 +9,7 @@ describe("Given a LoginForm component", () => {
 
       renderWithProviders(
         <>
-          <ThemeProvider theme={theme}>
-            <LoginForm />
-          </ThemeProvider>
+          <LoginForm />
         </>
       );
       const labelEmail = screen.getByLabelText(expectedLabelText);
@@ -27,9 +23,7 @@ describe("Given a LoginForm component", () => {
 
     renderWithProviders(
       <>
-        <ThemeProvider theme={theme}>
-          <LoginForm />
-        </ThemeProvider>
+        <LoginForm />
       </>
     );
     const labelPassword = screen.getByLabelText(expectedLabelText);
@@ -42,9 +36,7 @@ describe("Given a LoginForm component", () => {
 
     renderWithProviders(
       <>
-        <ThemeProvider theme={theme}>
-          <LoginForm />
-        </ThemeProvider>
+        <LoginForm />
       </>
     );
     const button = screen.getByRole("button", { name: expectedButtonText });
