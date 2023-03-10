@@ -5,7 +5,7 @@ import {
   PreloadedState,
   ThunkAction,
 } from "@reduxjs/toolkit";
-import { userReducer } from "./features/users/userSlice/userSlice";
+import { userReducer } from "./features/users/userSlice";
 
 const rootReducer = combineReducers({ user: userReducer });
 
