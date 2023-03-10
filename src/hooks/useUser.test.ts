@@ -5,7 +5,7 @@ import { store } from "../store";
 import { User } from "../store/features/users/userSlice/types";
 import { loginUserActionCreator } from "../store/features/users/userSlice/userSlice";
 import { CustomTokenPayload, UserCredentials } from "./types";
-import { useUser } from "./useUser";
+import useUser from "./useUser";
 
 beforeAll(() => {
   jest.clearAllMocks();

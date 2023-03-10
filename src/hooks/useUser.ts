@@ -8,7 +8,7 @@ import {
 import jwtDecode from "jwt-decode";
 import { loginUserActionCreator } from "../store/features/users/userSlice/userSlice";
 
-export const useUser = (): UseUserStructure => {
+const useUser = (): UseUserStructure => {
   const apiUrl = process.env.REACT_APP_API_URL;
   const pathLogin = "/users/login";
   const dispatch = useAppDispatch();
@@ -39,3 +39,5 @@ export const useUser = (): UseUserStructure => {
 
   return { loginUser };
 };
+
+export default useUser;
