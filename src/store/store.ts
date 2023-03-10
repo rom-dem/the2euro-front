@@ -5,9 +5,10 @@ import {
   PreloadedState,
   ThunkAction,
 } from "@reduxjs/toolkit";
-import { userReducer } from "./features/users/userSlice/userSlice";
+import { uiReducer } from "./features/ui/uiSlice";
+import { userReducer } from "./features/users/userSlice";
 
-const rootReducer = combineReducers({ user: userReducer });
+const rootReducer = combineReducers({ user: userReducer, ui: uiReducer });
 
 export const setupStore = (preloadedState?: PreloadedState<RootState>) => {
   return configureStore({ reducer: rootReducer, preloadedState });
