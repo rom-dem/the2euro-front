@@ -1,3 +1,4 @@
+import Button from "../Button/Button";
 import LoginFormStyled from "./LoginFormStyled";
 
 const LoginForm = (): JSX.Element => {
@@ -26,7 +27,7 @@ const LoginForm = (): JSX.Element => {
           />
         </label>
       </div>
-      <button>Log in</button>
+      <Button text={"Log in"} isDisabled={false} />
     </LoginFormStyled>
   );
 };

@@ -6,9 +6,11 @@ import {
 import { render } from "@testing-library/react";
 import { PropsWithChildren } from "react";
 import { Provider } from "react-redux";
+import { ThemeProvider } from "styled-components";
 import { RootState, store } from "./store";
 import { userReducer } from "./store/features/users/userSlice/userSlice";
 import GlobalStyles from "./styles/GlobalStyles";
+import { theme } from "./styles/theme";
 
 const rootReducer = combineReducers({ user: userReducer });
 
@@ -25,8 +27,10 @@ export const renderWithProviders = (
   const Wrapper = ({ children }: PropsWithChildren<{}>): JSX.Element => {
     return (
       <Provider store={testStore}>
-        <GlobalStyles />
-        {children}
+        <ThemeProvider theme={theme}>
+          <GlobalStyles />
+          {children}
+        </ThemeProvider>
       </Provider>
     );
   };
