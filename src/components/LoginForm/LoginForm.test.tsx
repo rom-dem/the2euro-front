@@ -1,7 +1,7 @@
 import { act, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { UserCredentials } from "../../hooks/types";
-import { renderWithProviders } from "../../testUtils";
+import { renderWithProviders } from "../../testUtil/renderWithProviders";
 import LoginForm from "./LoginForm";
 
 const mockSubmit = jest.fn();
