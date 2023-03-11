@@ -12,3 +12,11 @@ const routes: RouteObject[] = [
 ];
 
 export const router = createBrowserRouter(routes);
+
+export const getComponentRouter = (Ui: React.ReactElement) =>
+  createBrowserRouter([
+    {
+      path: "/",
+      element: Ui,
+    },
+  ]);
