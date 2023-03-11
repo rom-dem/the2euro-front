@@ -1,7 +1,9 @@
 import { ModalPayload, UiState } from "./types";
 import {
+  setIsLoadingActionCreator,
   setModalActionCreator,
   uiReducer,
+  unsetIsLoadingActionCreator,
   unsetModalActionCreator,
 } from "./uiSlice";
 
@@ -11,6 +13,7 @@ describe("Given a uiReducer reducer", () => {
       const currentUiState: UiState = {
         isError: false,
         modal: "",
+        isLoading: false,
       };
       const modalMessage = "Something went wrong";
       const modalPayload: ModalPayload = {
@@ -35,6 +38,7 @@ describe("Given a uiReducer reducer", () => {
       const currentUiState: UiState = {
         isError: true,
         modal: "Something went wrong",
+        isLoading: false,
       };
       const modalMessage = "";
       const expectedState: UiState = {
@@ -45,6 +49,44 @@ describe("Given a uiReducer reducer", () => {
 
       const unsetModal = unsetModalActionCreator();
       const newUiState = uiReducer(currentUiState, unsetModal);
+
+      expect(newUiState).toStrictEqual(expectedState);
+    });
+  });
+
+  describe("When called with setIsLoading action", () => {
+    test("Then it should return a new state with property isLoading set to true", () => {
+      const currentUiState: UiState = {
+        isError: false,
+        modal: "",
+        isLoading: false,
+      };
+      const expectedState: UiState = {
+        ...currentUiState,
+        isLoading: true,
+      };
+
+      const setIsLoading = setIsLoadingActionCreator();
+      const newUiState = uiReducer(currentUiState, setIsLoading);
+
+      expect(newUiState).toStrictEqual(expectedState);
+    });
+  });
+
+  describe("When called with unsetIsLoading action", () => {
+    test("Then it should return a new state with property isLoading set to false", () => {
+      const currentUiState: UiState = {
+        isError: false,
+        modal: "",
+        isLoading: true,
+      };
+      const expectedState: UiState = {
+        ...currentUiState,
+        isLoading: false,
+      };
+
+      const unsetIsLoading = unsetIsLoadingActionCreator();
+      const newUiState = uiReducer(currentUiState, unsetIsLoading);
 
       expect(newUiState).toStrictEqual(expectedState);
     });
