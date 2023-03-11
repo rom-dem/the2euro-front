@@ -1,5 +1,6 @@
 import { DefaultTheme } from "styled-components";
 import "../../node_modules/@fontsource/nunito-sans/400.css";
+import "../../node_modules/@fontsource/nunito-sans/700.css";
 import "../../node_modules/@fontsource/merriweather/400.css";
 
 export const theme: DefaultTheme = {
