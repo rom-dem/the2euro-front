@@ -11,6 +11,7 @@ describe("Given a uiReducer reducer", () => {
       const currentUiState: UiState = {
         isError: false,
         modal: "",
+        isLoading: false,
       };
       const modalMessage = "Something went wrong";
       const modalPayload: ModalPayload = {
@@ -35,6 +36,7 @@ describe("Given a uiReducer reducer", () => {
       const currentUiState: UiState = {
         isError: true,
         modal: "Something went wrong",
+        isLoading: false,
       };
       const modalMessage = "";
       const expectedState: UiState = {
