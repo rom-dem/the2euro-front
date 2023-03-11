@@ -3,7 +3,7 @@ import { ModalPayload, UiState } from "./types";
 
 const initialUiState: UiState = {
   isError: false,
-  modal: "",
+  message: "",
   isLoading: false,
 };
 
@@ -17,12 +17,12 @@ const uiSlice = createSlice({
     ): UiState => ({
       ...currentUiState,
       isError: action.payload.isError,
-      modal: action.payload.modal,
+      message: action.payload.message,
     }),
     unsetModal: (currentUiState): UiState => ({
       ...currentUiState,
       isError: initialUiState.isError,
-      modal: initialUiState.modal,
+      message: initialUiState.message,
     }),
     setIsLoading: (currentUiState) => ({
       ...currentUiState,
