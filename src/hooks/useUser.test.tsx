@@ -6,6 +6,8 @@ import { User } from "../store/features/users/types";
 import { loginUserActionCreator } from "../store/features/users/userSlice";
 import { CustomTokenPayload, UserCredentials } from "./types";
 import useUser from "./useUser";
+import { server } from "../mocks/server";
+import { handlers } from "../mocks/handlers";
 
 beforeAll(() => {
   jest.clearAllMocks();
@@ -28,6 +30,9 @@ describe("Given the useUser custom hook", () => {
   const mockTocken = "1234asdf";
 
   describe("When its loginUser function is called with user credentials", () => {
+    beforeEach(() => {
+      server.resetHandlers(...handlers);
+    });
     test("Then it should call dispatch function with the user credentials", async () => {
       const mockLoggedinUser: User = {
         email: mockTockenPayload.email,

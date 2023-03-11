@@ -7,7 +7,7 @@ import {
 } from "./types";
 import jwtDecode from "jwt-decode";
 import { loginUserActionCreator } from "../store/features/users/userSlice";
-import { showErrorModal } from "../modals/modals";
+import { setModalActionCreator } from "../store/features/ui/uiSlice";
 
 const useUser = (): UseUserStructure => {
   const apiUrl = process.env.REACT_APP_API_URL;
@@ -45,7 +45,8 @@ const useUser = (): UseUserStructure => {
 
       localStorage.setItem("token", token);
     } catch (error) {
-      showErrorModal((error as Error).message);
+      const errorMessage = (error as Error).message;
+      dispatch(setModalActionCreator({ isError: true, message: errorMessage }));
     }
   };
 
