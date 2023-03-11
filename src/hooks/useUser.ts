@@ -7,6 +7,7 @@ import {
 } from "./types";
 import jwtDecode from "jwt-decode";
 import { loginUserActionCreator } from "../store/features/users/userSlice";
+import { showErrorModal } from "../modals/modals";
 
 const useUser = (): UseUserStructure => {
   const apiUrl = process.env.REACT_APP_API_URL;
@@ -20,6 +21,13 @@ const useUser = (): UseUserStructure => {
         body: JSON.stringify(userCredentials),
         headers: { "Content-type": "application/json" },
       });
+
+      if (!response.ok) {
+        const errorMessage = "Wrong credentials";
+        const errorLogin = new Error(errorMessage);
+
+        throw errorLogin;
+      }
 
       const { token }: LoginResponse = await response.json();
 
@@ -36,7 +44,9 @@ const useUser = (): UseUserStructure => {
       );
 
       localStorage.setItem("token", token);
-    } catch (error: unknown) {}
+    } catch (error) {
+      showErrorModal((error as Error).message);
+    }
   };
 
   return { loginUser };
