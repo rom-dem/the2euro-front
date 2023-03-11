@@ -12,19 +12,19 @@ describe("Given a uiReducer reducer", () => {
     test("Then it should return a new state with property isError set to true and modal with the given message", () => {
       const currentUiState: UiState = {
         isError: false,
-        modal: "",
+        message: "",
         isLoading: false,
       };
       const modalMessage = "Something went wrong";
       const modalPayload: ModalPayload = {
         isError: true,
-        modal: modalMessage,
+        message: modalMessage,
       };
 
       const expectedState: UiState = {
         ...currentUiState,
         isError: true,
-        modal: modalMessage,
+        message: modalMessage,
       };
       const setModal = setModalActionCreator(modalPayload);
       const newUiState = uiReducer(currentUiState, setModal);
@@ -37,14 +37,14 @@ describe("Given a uiReducer reducer", () => {
     test("Then it should return a new state with property isError set to false and modal with an empty string", () => {
       const currentUiState: UiState = {
         isError: true,
-        modal: "Something went wrong",
+        message: "Something went wrong",
         isLoading: false,
       };
       const modalMessage = "";
       const expectedState: UiState = {
         ...currentUiState,
         isError: false,
-        modal: modalMessage,
+        message: modalMessage,
       };
 
       const unsetModal = unsetModalActionCreator();
@@ -58,7 +58,7 @@ describe("Given a uiReducer reducer", () => {
     test("Then it should return a new state with property isLoading set to true", () => {
       const currentUiState: UiState = {
         isError: false,
-        modal: "",
+        message: "",
         isLoading: false,
       };
       const expectedState: UiState = {
@@ -77,7 +77,7 @@ describe("Given a uiReducer reducer", () => {
     test("Then it should return a new state with property isLoading set to false", () => {
       const currentUiState: UiState = {
         isError: false,
-        modal: "",
+        message: "",
         isLoading: true,
       };
       const expectedState: UiState = {
