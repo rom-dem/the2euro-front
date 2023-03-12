@@ -15,7 +15,7 @@ import {
 
 const useUser = (): UseUserStructure => {
   const apiUrl = process.env.REACT_APP_API_URL;
-  const pathLogin = "/users/login";
+  const pathLogin = "/the2euro/login";
   const dispatch = useAppDispatch();
 
   const loginUser = async (userCredentials: UserCredentials) => {
