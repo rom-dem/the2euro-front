@@ -11,5 +11,5 @@ export const preloadedSucessUiState: UiState = {
   isError: false,
   message: "New coin added",
   isLoading: false,
-  isSuccess: false,
+  isSuccess: true,
 };
