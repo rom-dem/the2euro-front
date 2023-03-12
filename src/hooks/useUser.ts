@@ -7,7 +7,11 @@ import {
 } from "./types";
 import jwtDecode from "jwt-decode";
 import { loginUserActionCreator } from "../store/features/users/userSlice";
-import { setModalActionCreator } from "../store/features/ui/uiSlice";
+import {
+  setIsLoadingActionCreator,
+  setModalActionCreator,
+  unsetIsLoadingActionCreator,
+} from "../store/features/ui/uiSlice";
 
 const useUser = (): UseUserStructure => {
   const apiUrl = process.env.REACT_APP_API_URL;
@@ -16,11 +20,13 @@ const useUser = (): UseUserStructure => {
 
   const loginUser = async (userCredentials: UserCredentials) => {
     try {
+      dispatch(setIsLoadingActionCreator());
       const response = await fetch(`${apiUrl}${pathLogin}`, {
         method: "POST",
         body: JSON.stringify(userCredentials),
         headers: { "Content-type": "application/json" },
       });
+      dispatch(unsetIsLoadingActionCreator());
 
       if (!response.ok) {
         const errorMessage = "Wrong credentials";

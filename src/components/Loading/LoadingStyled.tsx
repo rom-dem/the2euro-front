@@ -1,6 +1,19 @@
 import styled from "styled-components";
 
 const LoadingStyled = styled.div`
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-width: auto;
+  height: 100%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.6);
+  z-index: 0;
+  padding-top: 200px;
   transform: translateZ(1px);
 
   :after {
