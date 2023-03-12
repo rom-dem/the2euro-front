@@ -52,7 +52,13 @@ const useUser = (): UseUserStructure => {
       localStorage.setItem("token", token);
     } catch (error) {
       const errorMessage = (error as Error).message;
-      dispatch(setModalActionCreator({ isError: true, message: errorMessage }));
+      dispatch(
+        setModalActionCreator({
+          isError: true,
+          message: errorMessage,
+          isSuccess: false,
+        })
+      );
     }
   };
 

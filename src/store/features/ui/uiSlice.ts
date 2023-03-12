@@ -5,6 +5,7 @@ const initialUiState: UiState = {
   isError: false,
   message: "",
   isLoading: false,
+  isSuccess: false,
 };
 
 const uiSlice = createSlice({
@@ -18,11 +19,13 @@ const uiSlice = createSlice({
       ...currentUiState,
       isError: action.payload.isError,
       message: action.payload.message,
+      isSuccess: action.payload.isSuccess,
     }),
     unsetModal: (currentUiState): UiState => ({
       ...currentUiState,
       isError: initialUiState.isError,
       message: initialUiState.message,
+      isSuccess: false,
     }),
     setIsLoading: (currentUiState) => ({
       ...currentUiState,

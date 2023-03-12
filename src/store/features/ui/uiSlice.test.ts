@@ -14,17 +14,20 @@ describe("Given a uiReducer reducer", () => {
         isError: false,
         message: "",
         isLoading: false,
+        isSuccess: false,
       };
       const modalMessage = "Something went wrong";
       const modalPayload: ModalPayload = {
         isError: true,
         message: modalMessage,
+        isSuccess: false,
       };
 
       const expectedState: UiState = {
         ...currentUiState,
         isError: true,
         message: modalMessage,
+        isSuccess: false,
       };
       const setModal = setModalActionCreator(modalPayload);
       const newUiState = uiReducer(currentUiState, setModal);
@@ -33,18 +36,20 @@ describe("Given a uiReducer reducer", () => {
     });
   });
 
-  describe("When called with unsetModal action", () => {
+  describe("When called with unsetModal action after showing the message 'Something went wrong'", () => {
     test("Then it should return a new state with property isError set to false and modal with an empty string", () => {
       const currentUiState: UiState = {
         isError: true,
         message: "Something went wrong",
         isLoading: false,
+        isSuccess: false,
       };
       const modalMessage = "";
       const expectedState: UiState = {
         ...currentUiState,
         isError: false,
         message: modalMessage,
+        isSuccess: false,
       };
 
       const unsetModal = unsetModalActionCreator();
@@ -60,6 +65,7 @@ describe("Given a uiReducer reducer", () => {
         isError: false,
         message: "",
         isLoading: false,
+        isSuccess: false,
       };
       const expectedState: UiState = {
         ...currentUiState,
@@ -79,6 +85,7 @@ describe("Given a uiReducer reducer", () => {
         isError: false,
         message: "",
         isLoading: true,
+        isSuccess: false,
       };
       const expectedState: UiState = {
         ...currentUiState,
