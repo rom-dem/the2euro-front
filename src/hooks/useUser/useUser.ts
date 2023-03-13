@@ -1,4 +1,4 @@
-import { useAppDispatch } from "../store/hooks";
+import { useAppDispatch } from "../../store/hooks";
 import {
   CustomTokenPayload,
   LoginResponse,
@@ -6,12 +6,12 @@ import {
   UseUserStructure,
 } from "./types";
 import jwtDecode from "jwt-decode";
-import { loginUserActionCreator } from "../store/features/users/userSlice";
+import { loginUserActionCreator } from "../../store/features/users/userSlice";
 import {
   setIsLoadingActionCreator,
   setModalActionCreator,
   unsetIsLoadingActionCreator,
-} from "../store/features/ui/uiSlice";
+} from "../../store/features/ui/uiSlice";
 
 const useUser = (): UseUserStructure => {
   const apiUrl = process.env.REACT_APP_API_URL;

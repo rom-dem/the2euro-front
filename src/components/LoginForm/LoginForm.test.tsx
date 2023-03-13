@@ -1,11 +1,13 @@
 import { act, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { UserCredentials } from "../../hooks/types";
+import { UserCredentials } from "../../hooks/useUser/types";
 import { renderWithProviders } from "../../testUtil/renderWithProviders";
 import LoginForm from "./LoginForm";
 
 const mockSubmit = jest.fn();
-jest.mock("../../hooks/useUser", () => () => ({ loginUser: mockSubmit }));
+jest.mock("../../hooks/useUser/useUser", () => () => ({
+  loginUser: mockSubmit,
+}));
 
 describe("Given a LoginForm component", () => {
   describe("When rendered", () => {
