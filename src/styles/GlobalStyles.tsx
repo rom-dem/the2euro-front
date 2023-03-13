@@ -41,7 +41,7 @@ input {
 
 
 .cointainer {
-  margin: 20px 
+  margin: 20px;
 }
 
 h1, h2, h3, h4 {

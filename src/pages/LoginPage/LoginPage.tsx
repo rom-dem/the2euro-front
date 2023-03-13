@@ -1,4 +1,5 @@
 import LoginForm from "../../components/LoginForm/LoginForm";
+import Navigation from "../../components/Navigation/Navigation";
 import LoginPageStyled from "./LoginPageStyled";
 
 const LoginPage = (): JSX.Element => {
@@ -29,6 +30,7 @@ const LoginPage = (): JSX.Element => {
           Register
         </a>
       </div>
+      <Navigation />
     </LoginPageStyled>
   );
 };

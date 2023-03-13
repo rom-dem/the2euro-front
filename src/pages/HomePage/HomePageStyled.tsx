@@ -4,8 +4,10 @@ const HomePageStyled = styled.div`
   display: flex;
   flex-direction: column;
   font-family: ${(props) => props.theme.fonts.text};
-  min-height: 90vh;
+  min-height: 100vh;
+  max-width: 100%;
   justify-content: space-between;
+  position: relative;
 
   .page {
     display: flex;
