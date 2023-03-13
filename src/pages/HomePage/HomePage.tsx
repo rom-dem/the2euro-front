@@ -1,12 +1,16 @@
+import HomePageStyled from "./HomePageStyled";
+
 const HomePage = (): JSX.Element => {
   return (
-    <>
-      <h1 className="page-title">The 2 Euro Collection</h1>
-      <span className="filter"></span>
-      <div className="coins-list"></div>
-      <div className="pagination"></div>
-      <div className="navbar"></div>
-    </>
+    <HomePageStyled>
+      <div className="page">
+        <h1 className="page__title">The 2 Euro Collection</h1>
+        <span className="page__filter">Filter</span>
+        <div className="page__coins-list">Coins list</div>
+      </div>
+      <div className="pagination">Pagination</div>
+      <div className="navbar">Navbar</div>
+    </HomePageStyled>
   );
 };
 
