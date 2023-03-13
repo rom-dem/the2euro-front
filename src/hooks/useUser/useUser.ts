@@ -1,4 +1,4 @@
-import { useAppDispatch } from "../store/hooks";
+import { useAppDispatch } from "../../store/hooks";
 import {
   CustomTokenPayload,
   LoginResponse,
@@ -6,12 +6,12 @@ import {
   UseUserStructure,
 } from "./types";
 import jwtDecode from "jwt-decode";
-import { loginUserActionCreator } from "../store/features/users/userSlice";
+import { loginUserActionCreator } from "../../store/features/users/userSlice";
 import {
   setIsLoadingActionCreator,
   setModalActionCreator,
   unsetIsLoadingActionCreator,
-} from "../store/features/ui/uiSlice";
+} from "../../store/features/ui/uiSlice";
 
 const useUser = (): UseUserStructure => {
   const apiUrl = process.env.REACT_APP_API_URL;
@@ -26,7 +26,6 @@ const useUser = (): UseUserStructure => {
         body: JSON.stringify(userCredentials),
         headers: { "Content-type": "application/json" },
       });
-      dispatch(unsetIsLoadingActionCreator());
 
       if (!response.ok) {
         const errorMessage = "Wrong credentials";
@@ -48,10 +47,14 @@ const useUser = (): UseUserStructure => {
           token,
         })
       );
+      dispatch(unsetIsLoadingActionCreator());
 
       localStorage.setItem("token", token);
     } catch (error) {
+      dispatch(unsetIsLoadingActionCreator());
+
       const errorMessage = (error as Error).message;
+
       dispatch(
         setModalActionCreator({
           isError: true,

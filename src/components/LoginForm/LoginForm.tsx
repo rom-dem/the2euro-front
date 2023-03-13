@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { UserCredentials } from "../../hooks/types";
-import useUser from "../../hooks/useUser";
+import { UserCredentials } from "../../hooks/useUser/types";
+import useUser from "../../hooks/useUser/useUser";
 import Button from "../Button/Button";
 import LoginFormStyled from "./LoginFormStyled";
 

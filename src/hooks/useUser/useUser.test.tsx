@@ -1,13 +1,13 @@
 import { renderHook } from "@testing-library/react";
 import jwtDecode from "jwt-decode";
-import { Wrapper } from "../mocks/Wrapper";
-import { store } from "../store/store";
-import { User } from "../store/features/users/types";
-import { loginUserActionCreator } from "../store/features/users/userSlice";
+import { Wrapper } from "../../mocks/Wrapper";
+import { store } from "../../store/store";
+import { User } from "../../store/features/users/types";
+import { loginUserActionCreator } from "../../store/features/users/userSlice";
 import { CustomTokenPayload, UserCredentials } from "./types";
+import { server } from "../../mocks/server";
+import { handlers } from "../../mocks/handlers";
 import useUser from "./useUser";
-import { server } from "../mocks/server";
-import { handlers } from "../mocks/handlers";
 
 beforeAll(() => {
   jest.clearAllMocks();
