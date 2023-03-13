@@ -26,7 +26,6 @@ const useUser = (): UseUserStructure => {
         body: JSON.stringify(userCredentials),
         headers: { "Content-type": "application/json" },
       });
-      dispatch(unsetIsLoadingActionCreator());
 
       if (!response.ok) {
         const errorMessage = "Wrong credentials";
@@ -48,10 +47,14 @@ const useUser = (): UseUserStructure => {
           token,
         })
       );
+      dispatch(unsetIsLoadingActionCreator());
 
       localStorage.setItem("token", token);
     } catch (error) {
+      dispatch(unsetIsLoadingActionCreator());
+
       const errorMessage = (error as Error).message;
+
       dispatch(
         setModalActionCreator({
           isError: true,

@@ -20,6 +20,12 @@ const useApi = () => {
         `${process.env.REACT_APP_API_URL}${endpoints.the2euro}${endpoints.coins}`,
         { method: "GET", headers: { "Content-Type": "application/json" } }
       );
+
+      if (!response.ok) {
+        const errorMessage = "Couldn't load coins";
+        throw new Error(errorMessage);
+      }
+
       const { coins } = (await response.json()) as CoinsFromApi;
 
       dispatch(loadAllCoinsActionCreator(coins));
