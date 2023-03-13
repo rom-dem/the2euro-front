@@ -5,10 +5,15 @@ import {
   PreloadedState,
   ThunkAction,
 } from "@reduxjs/toolkit";
+import { coinsReducer } from "./features/coins/coinsSlice";
 import { uiReducer } from "./features/ui/uiSlice";
 import { userReducer } from "./features/users/userSlice";
 
-const rootReducer = combineReducers({ user: userReducer, ui: uiReducer });
+const rootReducer = combineReducers({
+  user: userReducer,
+  ui: uiReducer,
+  coins: coinsReducer,
+});
 
 export const setupStore = (preloadedState?: PreloadedState<RootState>) => {
   return configureStore({ reducer: rootReducer, preloadedState });
