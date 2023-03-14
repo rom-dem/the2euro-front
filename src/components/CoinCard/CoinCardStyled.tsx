@@ -27,6 +27,19 @@ const CoinCardStyled = styled.article`
       white-space: nowrap;
       font-size: ${(props) => props.theme.fonts.textFontSizeM};
     }
+
+    &__image-container {
+      height: 120px;
+      width: 120px;
+      border-radius: 50%;
+      overflow: hidden;
+    }
+
+    &__image {
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+    }
   }
 `;
 
