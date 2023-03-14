@@ -1,9 +1,14 @@
+import { Navigate } from "react-router-dom";
 import LoginForm from "../../components/LoginForm/LoginForm";
-import Navigation from "../../components/Navigation/Navigation";
+import { useAppSelector } from "../../store/hooks";
 import LoginPageStyled from "./LoginPageStyled";
 
 const LoginPage = (): JSX.Element => {
-  return (
+  const { isLogged } = useAppSelector((state) => state.user);
+
+  return isLogged ? (
+    <Navigate to={"/my-coins"} replace={true} />
+  ) : (
     <LoginPageStyled>
       <div className="login-page__logo">
         <svg
@@ -30,7 +35,6 @@ const LoginPage = (): JSX.Element => {
           Register
         </a>
       </div>
-      <Navigation />
     </LoginPageStyled>
   );
 };
