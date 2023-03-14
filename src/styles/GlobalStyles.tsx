@@ -37,6 +37,7 @@ input {
   background-color: transparent;
   border: none;
   padding: 0;
+  outline: none;
 }
 
 
@@ -47,6 +48,8 @@ input {
 h1, h2, h3, h4 {
   margin: 0;
 }
+
+
 
 `;
 
