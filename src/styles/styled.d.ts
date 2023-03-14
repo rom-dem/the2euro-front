@@ -20,6 +20,7 @@ declare module "styled-components" {
       textFontSizeM: string;
       textFontSizeL: string;
       textFontSizeXL: string;
+      textFontSizeXXL: string;
     };
     border: {
       borderRadiusSmall: string;

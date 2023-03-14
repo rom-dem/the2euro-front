@@ -16,7 +16,7 @@ const CoinCard = ({ coin }: CoinProps): JSX.Element => {
         className="card__image"
       />
       <div className="card__details">
-        <span className="card__country">{coin.country}</span>
+        <h2 className="card__country">{coin.country}</h2>
         <span className="card__year">Year: {coin.year}</span>
       </div>
     </CoinCardStyled>
