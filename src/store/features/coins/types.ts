@@ -5,6 +5,7 @@ export interface CoinStructure {
   feature: string;
   description: string;
   image: string;
+  id: string;
 }
 
 export type CoinsStructure = CoinStructure[];

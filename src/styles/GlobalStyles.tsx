@@ -5,7 +5,7 @@ const GlobalStyles = createGlobalStyle`
 *, 
 ::before,
 ::after {
-  box-sizing: border-box
+  box-sizing: border-box;
 }
 
 body {
@@ -16,6 +16,7 @@ ul,
 ol {
   list-style: none;
   padding: 0;
+  margin: 0;
 }
 
 a,

@@ -20,8 +20,9 @@ export const theme: DefaultTheme = {
     text: "Nunito Sans",
     textFontSizeS: "1rem",
     textFontSizeM: "1.125rem",
-    textFontSizeL: "1.5rem",
-    textFontSizeXL: "1.875rem",
+    textFontSizeL: "1.25rem",
+    textFontSizeXL: "1.5rem",
+    textFontSizeXXL: "1.875rem",
   },
   border: {
     borderRadiusSmall: "4px",

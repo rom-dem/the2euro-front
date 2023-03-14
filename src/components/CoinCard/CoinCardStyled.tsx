@@ -18,12 +18,14 @@ const CoinCardStyled = styled.article`
       text-overflow: ellipsis;
       overflow: hidden;
       white-space: nowrap;
+      font-size: ${(props) => props.theme.fonts.textFontSizeL};
     }
 
     &__year {
       text-overflow: ellipsis;
       overflow: hidden;
       white-space: nowrap;
+      font-size: ${(props) => props.theme.fonts.textFontSizeM};
     }
   }
 `;
