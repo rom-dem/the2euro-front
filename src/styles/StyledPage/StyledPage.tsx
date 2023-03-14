@@ -17,6 +17,7 @@ const StyledPage = styled.div`
       font-family: ${(props) => props.theme.fonts.title};
       font-size: ${(props) => props.theme.fonts.titleFontSizeS};
       padding-top: 50px;
+      padding-bottom: 15px;
       display: table-cell;
       vertical-align: bottom;
       align-self: center;
