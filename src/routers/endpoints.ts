@@ -11,7 +11,7 @@ const endpoints: Routes = {
   home: "/",
   the2euro: "/the2euro",
   coins: "/coins",
-  myCoins: "/my-coins",
+  myCoins: "my-coins",
 };
 
 export default endpoints;
