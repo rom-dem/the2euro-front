@@ -2,9 +2,9 @@ import { useEffect } from "react";
 import useApi from "../../hooks/useApi/useApi";
 import { useAppSelector } from "../../store/hooks";
 import CoinCard from "../CoinCard/CoinCard";
-import CoinsListStyled from "./CoinsListStyled";
+import CoinsListStyled from "./CoinCardsListStyled";
 
-const CoinsList = (): JSX.Element => {
+const CoinCardsList = (): JSX.Element => {
   const { loadAllCoins } = useApi();
 
   useEffect(() => {
@@ -24,4 +24,4 @@ const CoinsList = (): JSX.Element => {
   );
 };
 
-export default CoinsList;
+export default CoinCardsList;
