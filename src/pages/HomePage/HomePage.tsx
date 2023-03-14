@@ -1,4 +1,3 @@
-import Navigation from "../../components/Navigation/Navigation";
 import HomePageStyled from "./HomePageStyled";
 
 const HomePage = (): JSX.Element => {
@@ -10,7 +9,6 @@ const HomePage = (): JSX.Element => {
         <div className="page__coins-list">Coins list</div>
       </div>
       <div className="pagination">Pagination</div>
-      <Navigation />
     </HomePageStyled>
   );
 };
