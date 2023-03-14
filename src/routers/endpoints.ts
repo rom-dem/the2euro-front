@@ -3,6 +3,7 @@ interface Routes {
   home: string;
   the2euro: string;
   coins: string;
+  myCoins: string;
 }
 
 const endpoints: Routes = {
@@ -10,6 +11,7 @@ const endpoints: Routes = {
   home: "/",
   the2euro: "/the2euro",
   coins: "/coins",
+  myCoins: "my-coins",
 };
 
 export default endpoints;
