@@ -12,10 +12,11 @@ import {
   setModalActionCreator,
   unsetIsLoadingActionCreator,
 } from "../../store/features/ui/uiSlice";
+import endpoints from "../../routers/endpoints";
 
 const useUser = (): UseUserStructure => {
   const apiUrl = process.env.REACT_APP_API_URL;
-  const pathLogin = "/the2euro/login";
+  const pathLogin = `${endpoints.users}${endpoints.login}`;
   const dispatch = useAppDispatch();
 
   const loginUser = async (userCredentials: UserCredentials) => {
@@ -38,7 +39,7 @@ const useUser = (): UseUserStructure => {
 
       const tokenPayload: CustomTokenPayload = jwtDecode(token);
 
-      const { id, email } = tokenPayload;
+      const { sub: id, email } = tokenPayload;
 
       dispatch(
         loginUserActionCreator({
