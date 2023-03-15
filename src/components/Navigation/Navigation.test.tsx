@@ -1,5 +1,5 @@
 import { screen } from "@testing-library/react";
-import { renderRouterWithProviders } from "../../testUtil/renderWithProviders";
+import { renderRouterWithProviders } from "../../testUtil/renderRouterWithProviders";
 import Navigation from "./Navigation";
 
 describe("Given a Navigation component", () => {
@@ -9,7 +9,7 @@ describe("Given a Navigation component", () => {
       const myCoinsText = /my coins/i;
       const homeText = /home/i;
 
-      renderRouterWithProviders(<Navigation />);
+      renderRouterWithProviders({}, <Navigation />);
       const loginButton = screen.getByRole("link", { name: loginText });
       const myCoinsButton = screen.getByRole("link", { name: myCoinsText });
       const homeButton = screen.getByRole("link", { name: homeText });
