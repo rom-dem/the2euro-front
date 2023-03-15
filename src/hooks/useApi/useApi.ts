@@ -17,7 +17,7 @@ const useApi = () => {
       dispatch(setIsLoadingActionCreator());
 
       const response = await fetch(
-        `${process.env.REACT_APP_API_URL}${endpoints.the2euro}${endpoints.coins}`,
+        `${process.env.REACT_APP_API_URL}${endpoints.coins}`,
         { method: "GET", headers: { "Content-Type": "application/json" } }
       );
 
