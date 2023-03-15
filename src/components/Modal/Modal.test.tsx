@@ -3,7 +3,7 @@ import {
   preloadedSucessUiState,
 } from "../../mocks/preloadedUiState";
 import { showErrorModal, showSuccessModal } from "../../modals/modals";
-import { renderRouterWithProviders } from "../../testUtil/renderWithProviders";
+import { renderRouterWithProviders } from "../../testUtil/renderRouterWithProviders";
 import Modal from "./Modal";
 
 jest.mock("../../modals/modals", () => ({
@@ -16,7 +16,7 @@ describe("Given a Modal component", () => {
     test("Then it should render the ToastContainer component for error", () => {
       const expectedMessage = "Wrong credentials";
 
-      renderRouterWithProviders(<Modal />, { ui: preloadedErrorUiState });
+      renderRouterWithProviders({ ui: preloadedErrorUiState }, <Modal />);
 
       expect(showErrorModal).toHaveBeenCalledWith(expectedMessage);
     });
@@ -26,7 +26,7 @@ describe("Given a Modal component", () => {
     test("Then it should render the ToastContainer component for success", () => {
       const expectedMessage = "New coin added";
 
-      renderRouterWithProviders(<Modal />, { ui: preloadedSucessUiState });
+      renderRouterWithProviders({ ui: preloadedSucessUiState }, <Modal />);
 
       expect(showSuccessModal).toHaveBeenCalledWith(expectedMessage);
     });

@@ -1,7 +1,7 @@
 import { screen } from "@testing-library/react";
 import * as ReactRouterDom from "react-router-dom";
 import { UserState } from "../../store/features/users/types";
-import { renderRouterWithProviders } from "../../testUtil/renderWithProviders";
+import { renderRouterWithProviders } from "../../testUtil/renderRouterWithProviders";
 import LoginPage from "./LoginPage";
 
 jest.mock("react-router-dom", () => ({
@@ -14,7 +14,7 @@ describe("Given a LoginPage page", () => {
     test("Then it should show a submit button", () => {
       const buttonText = /log in/i;
 
-      renderRouterWithProviders(<LoginPage />);
+      renderRouterWithProviders({}, <LoginPage />);
       const button = screen.getByRole("button", { name: buttonText });
 
       expect(button).toBeInTheDocument();
@@ -30,7 +30,7 @@ describe("Given a LoginPage page", () => {
         isLogged: true,
       };
 
-      renderRouterWithProviders(<LoginPage />, { user: user });
+      renderRouterWithProviders({ user: user }, <LoginPage />);
       expect(ReactRouterDom.Navigate).toHaveBeenCalled();
     });
   });
