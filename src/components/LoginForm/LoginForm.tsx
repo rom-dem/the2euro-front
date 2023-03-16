@@ -57,6 +57,7 @@ const LoginForm = (): JSX.Element => {
             name="password"
             placeholder="Introduce your password"
             onChange={handleChangeUserData}
+            autoComplete="current-password"
             className="form__input"
           />
         </label>
