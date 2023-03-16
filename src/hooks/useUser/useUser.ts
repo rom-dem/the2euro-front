@@ -39,7 +39,7 @@ const useUser = (): UseUserStructure => {
 
       const tokenPayload: CustomTokenPayload = jwtDecode(token);
 
-      const { sub: id, email } = tokenPayload;
+      const { id, email } = tokenPayload;
 
       dispatch(
         loginUserActionCreator({
