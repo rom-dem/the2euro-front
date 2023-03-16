@@ -13,6 +13,11 @@ export const handlers = [
     async (req, res, context) =>
       res(context.status(200), context.json(mockCoinsFromApi))
   ),
+  rest.delete(
+    `${process.env.REACT_APP_API_URL}${endpoints.coins}${endpoints.delete}${endpoints.id}`,
+    async (req, res, context) =>
+      res(context.status(200), context.json(mockCoinsFromApi))
+  ),
 ];
 
 export const errorHandlers = [
@@ -22,6 +27,10 @@ export const errorHandlers = [
   ),
   rest.get(
     `${process.env.REACT_APP_API_URL}${endpoints.coins}`,
+    async (req, res, context) => res(context.status(500))
+  ),
+  rest.delete(
+    `${process.env.REACT_APP_API_URL}${endpoints.coins}${endpoints.delete}${endpoints.id}`,
     async (req, res, context) => res(context.status(500))
   ),
 ];
