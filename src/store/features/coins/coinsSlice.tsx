@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { CoinsFromApi, CoinsStructure, CoinStructure } from "./types";
+import { CoinsState, CoinsStructure, CoinStructure } from "./types";
 
-const initialState: CoinsFromApi = {
+const initialState: CoinsState = {
   coins: [],
 };
 

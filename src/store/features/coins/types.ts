@@ -6,10 +6,11 @@ export interface CoinStructure {
   description: string;
   image: string;
   id: string;
+  owner: string;
 }
 
 export type CoinsStructure = CoinStructure[];
 
-export interface CoinsFromApi {
+export interface CoinsState {
   coins: CoinsStructure;
 }
