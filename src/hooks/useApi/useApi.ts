@@ -1,16 +1,21 @@
 import { useCallback } from "react";
 import endpoints from "../../routers/endpoints";
-import { loadAllCoinsActionCreator } from "../../store/features/coins/coinsSlice";
-import { CoinsFromApi } from "../../store/features/coins/types";
+import {
+  deleteCoinByIdActionCreator,
+  loadAllCoinsActionCreator,
+} from "../../store/features/coins/coinsSlice";
+import { CoinsState, CoinStructure } from "../../store/features/coins/types";
 import {
   setIsLoadingActionCreator,
   setModalActionCreator,
   unsetIsLoadingActionCreator,
 } from "../../store/features/ui/uiSlice";
-import { useAppDispatch } from "../../store/hooks";
+import { useAppDispatch, useAppSelector } from "../../store/hooks";
 
 const useApi = () => {
   const dispatch = useAppDispatch();
+
+  const { token } = useAppSelector((state) => state.user);
 
   const loadAllCoins = useCallback(async () => {
     try {
@@ -26,7 +31,7 @@ const useApi = () => {
         throw new Error(errorMessage);
       }
 
-      const { coins } = (await response.json()) as CoinsFromApi;
+      const { coins } = (await response.json()) as CoinsState;
 
       dispatch(loadAllCoinsActionCreator(coins));
       dispatch(unsetIsLoadingActionCreator());
@@ -44,7 +49,54 @@ const useApi = () => {
       );
     }
   }, [dispatch]);
-  return { loadAllCoins };
+
+  const deleteCoinById = useCallback(
+    async (coin: CoinStructure) => {
+      try {
+        dispatch(setIsLoadingActionCreator());
+
+        const response = await fetch(
+          `${process.env.REACT_APP_API_URL}${endpoints.coins}${endpoints.delete}/${coin.id}`,
+          {
+            method: "DELETE",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+
+        if (!response.ok) {
+          const errorMessage = "Couldn't delete the coin";
+          throw new Error(errorMessage);
+        }
+
+        dispatch(deleteCoinByIdActionCreator(coin));
+        dispatch(unsetIsLoadingActionCreator());
+        dispatch(
+          setModalActionCreator({
+            isSuccess: true,
+            isError: false,
+            message: "The coin was deleted",
+          })
+        );
+      } catch (error: unknown) {
+        dispatch(unsetIsLoadingActionCreator());
+
+        const errorMessage = (error as Error).message;
+
+        dispatch(
+          setModalActionCreator({
+            isError: true,
+            message: errorMessage,
+            isSuccess: false,
+          })
+        );
+      }
+    },
+    [dispatch, token]
+  );
+  return { loadAllCoins, deleteCoinById };
 };
 
 export default useApi;

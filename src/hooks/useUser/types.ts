@@ -12,6 +12,6 @@ export interface LoginResponse {
 }
 
 export interface CustomTokenPayload {
-  sub: string;
+  id: string;
   email: string;
 }

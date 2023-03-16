@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { CoinsFromApi, CoinsStructure } from "./types";
+import { CoinsState, CoinsStructure, CoinStructure } from "./types";
 
-const initialState: CoinsFromApi = {
+const initialState: CoinsState = {
   coins: [],
 };
 
@@ -16,8 +16,20 @@ const coinsSlice = createSlice({
       ...currentCoinState,
       coins: [...action.payload],
     }),
+    deleteCoinById: (
+      currentCoinState,
+      action: PayloadAction<CoinStructure>
+    ) => {
+      const updatedList = currentCoinState.coins.filter(
+        (coin) => coin.id !== action.payload.id
+      );
+      return { coins: updatedList };
+    },
   },
 });
 
 export const coinsReducer = coinsSlice.reducer;
-export const { loadAllCoins: loadAllCoinsActionCreator } = coinsSlice.actions;
+export const {
+  loadAllCoins: loadAllCoinsActionCreator,
+  deleteCoinById: deleteCoinByIdActionCreator,
+} = coinsSlice.actions;

@@ -25,7 +25,7 @@ describe("Given the useUser custom hook", () => {
   };
 
   const mockTockenPayload: CustomTokenPayload = {
-    sub: "009",
+    id: "009",
     email: mockUserCredentials.email,
   };
 
@@ -45,7 +45,7 @@ describe("Given the useUser custom hook", () => {
     test("Then it should call dispatch function with the user credentials", async () => {
       const mockLoggedinUser: User = {
         email: mockTockenPayload.email,
-        id: mockTockenPayload.sub,
+        id: mockTockenPayload.id,
         token: mockTocken,
       };
 

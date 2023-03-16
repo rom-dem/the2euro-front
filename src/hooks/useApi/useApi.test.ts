@@ -3,7 +3,10 @@ import { Wrapper } from "../../mocks/Wrapper";
 import { store } from "../../store/store";
 import useApi from "./useApi";
 import { mockCoins } from "../../mocks/coinMocks";
-import { loadAllCoinsActionCreator } from "../../store/features/coins/coinsSlice";
+import {
+  deleteCoinByIdActionCreator,
+  loadAllCoinsActionCreator,
+} from "../../store/features/coins/coinsSlice";
 import { ModalPayload } from "../../store/features/ui/types";
 import { server } from "../../mocks/server";
 import { errorHandlers } from "../../mocks/handlers";
@@ -15,15 +18,17 @@ afterEach(() => {
 
 const dispatchSpy = jest.spyOn(store, "dispatch");
 
-describe("Given the useApi custom hook", () => {
-  const {
-    result: {
-      current: { loadAllCoins },
-    },
-  } = renderHook(() => useApi(), { wrapper: Wrapper });
+const [coinMalta2020] = mockCoins;
 
-  describe("When its loadAllCoins functions is called", () => {
+describe("Given the useApi custom hook and loadAllCoins function", () => {
+  describe("When its loadAllCoins function is called", () => {
     test("Then it should call its dispatch method", async () => {
+      const {
+        result: {
+          current: { loadAllCoins },
+        },
+      } = renderHook(() => useApi(), { wrapper: Wrapper });
+
       await loadAllCoins();
 
       expect(dispatchSpy).toHaveBeenNthCalledWith(
@@ -38,6 +43,12 @@ describe("Given the useApi custom hook", () => {
       server.resetHandlers(...errorHandlers);
     });
     test("Then it should call the dispatch method with setModalActionCreator with the message 'Couldn't load coins'", async () => {
+      const {
+        result: {
+          current: { loadAllCoins },
+        },
+      } = renderHook(() => useApi(), { wrapper: Wrapper });
+
       const errorMessage = "Couldn't load coins";
 
       const modal: ModalPayload = {
@@ -47,6 +58,53 @@ describe("Given the useApi custom hook", () => {
       };
 
       await loadAllCoins();
+
+      expect(dispatchSpy).toHaveBeenNthCalledWith(
+        3,
+        setModalActionCreator(modal)
+      );
+    });
+  });
+});
+
+describe("Given the useApi custom hook and deleteCoinById function", () => {
+  describe("When its deleteCoinById function is called", () => {
+    test("Then it should call its dispatch method", async () => {
+      const {
+        result: {
+          current: { deleteCoinById },
+        },
+      } = renderHook(() => useApi(), { wrapper: Wrapper });
+
+      await deleteCoinById(coinMalta2020);
+
+      expect(dispatchSpy).toHaveBeenNthCalledWith(
+        2,
+        deleteCoinByIdActionCreator(coinMalta2020)
+      );
+    });
+  });
+
+  describe("When its deleteCoinById function is called but fails", () => {
+    beforeEach(() => {
+      server.resetHandlers(...errorHandlers);
+    });
+    test("Then it should call the dispatch method with setModalActionCreator with the message 'Couldn't delete coin'", async () => {
+      const {
+        result: {
+          current: { deleteCoinById },
+        },
+      } = renderHook(() => useApi(), { wrapper: Wrapper });
+
+      const errorMessage = "Couldn't delete the coin";
+
+      const modal: ModalPayload = {
+        isError: true,
+        isSuccess: false,
+        message: errorMessage,
+      };
+
+      await deleteCoinById(coinMalta2020);
 
       expect(dispatchSpy).toHaveBeenNthCalledWith(
         3,

@@ -40,6 +40,19 @@ const CoinCardStyled = styled.article`
       width: 100%;
       height: 100%;
     }
+
+    &__buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+  }
+
+  button {
+    height: 48px;
+    width: 48px;
+    display: flex;
+    align-items: center;
   }
 `;
 
