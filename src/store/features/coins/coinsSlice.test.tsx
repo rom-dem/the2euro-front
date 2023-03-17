@@ -5,6 +5,7 @@ import {
 } from "../../../mocks/coinMocks";
 import {
   coinsReducer,
+  createCoinActionCreator,
   deleteCoinByIdActionCreator,
   loadAllCoinsActionCreator,
 } from "./coinsSlice";
@@ -34,6 +35,22 @@ describe("Given a coinReducer reducer", () => {
       const newCoinList = coinsReducer(initialCoinsList, deleteCoinByIdAction);
       const expectedList: CoinsState = {
         coins: [coinAndorra2018],
+      };
+
+      expect(expectedList).toStrictEqual(newCoinList);
+    });
+  });
+
+  describe("When it receives a createCoin action and a coin to create", () => {
+    test("Then it should add this coin to the current state list", () => {
+      const initialCoinsList: CoinsState = {
+        coins: [coinAndorra2018],
+      };
+
+      const createNewCoin = createCoinActionCreator(coinMalta2020);
+      const newCoinList = coinsReducer(initialCoinsList, createNewCoin);
+      const expectedList: CoinsState = {
+        coins: [coinAndorra2018, coinMalta2020],
       };
 
       expect(expectedList).toStrictEqual(newCoinList);
