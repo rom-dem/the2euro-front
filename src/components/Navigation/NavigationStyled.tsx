@@ -16,6 +16,7 @@ const NavigationStyled = styled.nav`
   }
   .active {
     border-bottom: 5px solid;
+    border-radius: 5px;
   }
 `;
 
