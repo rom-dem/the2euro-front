@@ -6,6 +6,7 @@ interface Routes {
   users: string;
   delete: string;
   id: string;
+  create: string;
 }
 
 const endpoints: Routes = {
@@ -16,6 +17,7 @@ const endpoints: Routes = {
   users: "/users",
   delete: "/delete",
   id: "/:id",
+  create: "/create",
 };
 
 export default endpoints;

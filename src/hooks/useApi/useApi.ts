@@ -1,6 +1,7 @@
 import { useCallback } from "react";
 import endpoints from "../../routers/endpoints";
 import {
+  createCoinActionCreator,
   deleteCoinByIdActionCreator,
   loadAllCoinsActionCreator,
 } from "../../store/features/coins/coinsSlice";
@@ -96,7 +97,56 @@ const useApi = () => {
     },
     [dispatch, token]
   );
-  return { loadAllCoins, deleteCoinById };
+
+  const createCoin = useCallback(
+    async (coin: CoinStructure) => {
+      dispatch(setIsLoadingActionCreator());
+
+      try {
+        const response = await fetch(
+          `${process.env.REACT_APP_API_URL}${endpoints.coins}${endpoints.create}`,
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+
+        if (!response.ok) {
+          const errorMessage = "Couldn't create the coin";
+          throw new Error(errorMessage);
+        }
+
+        dispatch(createCoinActionCreator(coin));
+
+        dispatch(unsetIsLoadingActionCreator());
+        dispatch(
+          setModalActionCreator({
+            isSuccess: true,
+            isError: false,
+            message: "The coin was created",
+          })
+        );
+      } catch (error) {
+        dispatch(unsetIsLoadingActionCreator());
+
+        const errorMessage = (error as Error).message;
+
+        dispatch(
+          setModalActionCreator({
+            isError: true,
+            message: errorMessage,
+            isSuccess: false,
+          })
+        );
+      }
+    },
+    [dispatch, token]
+  );
+
+  return { loadAllCoins, deleteCoinById, createCoin };
 };
 
 export default useApi;
