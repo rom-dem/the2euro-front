@@ -20,7 +20,7 @@ const Navigation = (): JSX.Element => {
         <FontAwesomeIcon aria-label="" name="create" icon={solid("plus")} />
       </NavLink>
 
-      <NavLink to={endpoints.login} onClick={() => logoutUser()} title="login">
+      <NavLink to={endpoints.login} onClick={() => logoutUser()} title="logout">
         <FontAwesomeIcon icon={solid("user-slash")} />
       </NavLink>
     </NavigationStyled>
