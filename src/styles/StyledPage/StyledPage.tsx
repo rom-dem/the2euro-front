@@ -6,7 +6,7 @@ const StyledPage = styled.div`
   font-family: ${(props) => props.theme.fonts.text};
   min-height: 100vh;
   max-width: 100%;
-  justify-content: space-between;
+  justify-content: flex-start;
   position: relative;
 
   .page {
