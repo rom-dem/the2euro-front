@@ -33,13 +33,15 @@ button {
   cursor: pointer;
 }
 
-input {
+input, select, textarea {
   font-family: inherit;
   background-color: transparent;
   border: none;
   padding: 0;
   outline: none;
 }
+
+
 
 h1, h2, h3, h4 {
   margin: 0;

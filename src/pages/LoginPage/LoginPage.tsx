@@ -1,5 +1,6 @@
 import { Navigate } from "react-router-dom";
 import LoginForm from "../../components/LoginForm/LoginForm";
+import endpoints from "../../routers/endpoints";
 import { useAppSelector } from "../../store/hooks";
 import LoginPageStyled from "./LoginPageStyled";
 
@@ -7,7 +8,7 @@ const LoginPage = (): JSX.Element => {
   const { isLogged } = useAppSelector((state) => state.user);
 
   return isLogged ? (
-    <Navigate to={"/my-coins"} replace={true} />
+    <Navigate to={endpoints.home} replace={true} />
   ) : (
     <LoginPageStyled>
       <div className="login-page__logo">
@@ -31,7 +32,10 @@ const LoginPage = (): JSX.Element => {
         <span className="login-page__register register__question">
           Need an account?
         </span>
-        <a className="login-page__register register__link" href="/register">
+        <a
+          className="login-page__register register__link"
+          href={endpoints.home}
+        >
           Register
         </a>
       </div>
