@@ -1,13 +1,13 @@
 import { screen } from "@testing-library/react";
 import { renderWithProviders } from "../../testUtil/renderWithProviders";
-import MyCoinsPage from "./MyCoinsPage";
+import CreatePage from "./CreatePage";
 
-describe("Given MyCoinsPage page", () => {
+describe("Given CreatePage page", () => {
   describe("When rendered", () => {
-    test("Then it should show a heading with the text 'My Coins'", async () => {
-      const linkText = /my coins/i;
+    test("Then it should show a heading with the text 'Add a new coin'", async () => {
+      const linkText = /add a new coin/i;
 
-      renderWithProviders(<MyCoinsPage />);
+      renderWithProviders(<CreatePage />);
       const homeHeading = await screen.findByRole("heading", {
         name: linkText,
       });
