@@ -24,6 +24,13 @@ export const preloadedLoggedinState: UserState = {
   token: "",
 };
 
+export const preloadedLoggedoutState: UserState = {
+  email: "",
+  id: "",
+  isLogged: false,
+  token: "",
+};
+
 export const preloadedCoinsState: CoinsState = {
   coins: [coinAndorra2018],
 };
