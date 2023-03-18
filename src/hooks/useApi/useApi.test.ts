@@ -117,6 +117,31 @@ describe("Given the useApi custom hook", () => {
     });
   });
 
+  describe("When its createCoin function is called", () => {
+    test("Then it should call the dispatch method with setModalActionCreator with the message 'The coin was created'", async () => {
+      const {
+        result: {
+          current: { createCoin },
+        },
+      } = renderHook(() => useApi(), { wrapper: Wrapper });
+
+      const successMessage = "The coin was created";
+
+      const modal: ModalPayload = {
+        isError: false,
+        isSuccess: true,
+        message: successMessage,
+      };
+
+      await createCoin(coinMalta2020);
+
+      expect(dispatchSpy).toHaveBeenNthCalledWith(
+        3,
+        setModalActionCreator(modal)
+      );
+    });
+  });
+
   describe("When its createCoin function is called but fails", () => {
     beforeEach(() => {
       server.resetHandlers(...errorHandlers);
