@@ -3,7 +3,10 @@ import jwtDecode from "jwt-decode";
 import { Wrapper } from "../../mocks/Wrapper";
 import { store } from "../../store/store";
 import { User } from "../../store/features/users/types";
-import { loginUserActionCreator } from "../../store/features/users/userSlice";
+import {
+  loginUserActionCreator,
+  logoutUserActionCreator,
+} from "../../store/features/users/userSlice";
 import { CustomTokenPayload, UserCredentials } from "./types";
 import { server } from "../../mocks/server";
 import { errorHandlers, handlers } from "../../mocks/handlers";
@@ -81,6 +84,20 @@ describe("Given the useUser custom hook", () => {
         3,
         setModalActionCreator(modal)
       );
+    });
+  });
+
+  describe("When its logoutUser function is called", () => {
+    const {
+      result: {
+        current: { logoutUser },
+      },
+    } = renderHook(() => useUser(), { wrapper: Wrapper });
+
+    test("Then it should call the dispatch function to log out", async () => {
+      await logoutUser();
+
+      expect(dispatchSpy).toHaveBeenCalledWith(logoutUserActionCreator());
     });
   });
 });
