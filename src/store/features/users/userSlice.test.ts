@@ -1,5 +1,13 @@
+import {
+  preloadedLoggedinState,
+  preloadedLoggedoutState,
+} from "../../../mocks/preloadedUiState";
 import { UserState } from "./types";
-import { loginUserActionCreator, userReducer } from "./userSlice";
+import {
+  loginUserActionCreator,
+  logoutUserActionCreator,
+  userReducer,
+} from "./userSlice";
 
 describe("Given a userReducer reducer", () => {
   const jairo: UserState = {
@@ -8,7 +16,7 @@ describe("Given a userReducer reducer", () => {
     email: "jairo@test.com",
     token: "12341234",
   };
-  describe("When it receives a registered user Jairo and an loginUser action", () => {
+  describe("When it receives a registered user Jairo and a loginUser action", () => {
     test("Then it should switch its isLogged property to true", () => {
       const loginUserAction = loginUserActionCreator(jairo);
       const expectedJairoState: UserState = {
@@ -21,6 +29,17 @@ describe("Given a userReducer reducer", () => {
       const newJairoState = userReducer(jairo, loginUserAction);
 
       expect(newJairoState).toStrictEqual(expectedJairoState);
+    });
+  });
+
+  describe("When it receives a logoutUser action", () => {
+    test("Then it should set the logged state to false", () => {
+      const logoutUserAction = logoutUserActionCreator();
+      const expectedState = preloadedLoggedoutState;
+
+      const newState = userReducer(preloadedLoggedinState, logoutUserAction);
+
+      expect(newState).toStrictEqual(expectedState);
     });
   });
 });

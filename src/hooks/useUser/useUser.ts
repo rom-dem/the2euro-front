@@ -6,7 +6,10 @@ import {
   UseUserStructure,
 } from "./types";
 import jwtDecode from "jwt-decode";
-import { loginUserActionCreator } from "../../store/features/users/userSlice";
+import {
+  loginUserActionCreator,
+  logoutUserActionCreator,
+} from "../../store/features/users/userSlice";
 import {
   setIsLoadingActionCreator,
   setModalActionCreator,
@@ -66,7 +69,18 @@ const useUser = (): UseUserStructure => {
     }
   };
 
-  return { loginUser };
+  const logoutUser = () => {
+    dispatch(logoutUserActionCreator());
+    dispatch(
+      setModalActionCreator({
+        isError: false,
+        isSuccess: true,
+        message: "You've been logged out",
+      })
+    );
+  };
+
+  return { loginUser, logoutUser };
 };
 
 export default useUser;

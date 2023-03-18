@@ -5,6 +5,7 @@ export interface UserCredentials {
 
 export interface UseUserStructure {
   loginUser: (userCredentials: UserCredentials) => Promise<void>;
+  logoutUser: () => void;
 }
 
 export interface LoginResponse {
