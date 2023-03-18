@@ -4,13 +4,12 @@ import { store } from "../../store/store";
 import useApi from "./useApi";
 import { mockCoins } from "../../mocks/coinMocks";
 import {
-  createCoinActionCreator,
   deleteCoinByIdActionCreator,
   loadAllCoinsActionCreator,
 } from "../../store/features/coins/coinsSlice";
 import { ModalPayload } from "../../store/features/ui/types";
 import { server } from "../../mocks/server";
-import { errorHandlers, handlers } from "../../mocks/handlers";
+import { errorHandlers } from "../../mocks/handlers";
 import { setModalActionCreator } from "../../store/features/ui/uiSlice";
 
 afterEach(() => {
@@ -20,6 +19,12 @@ afterEach(() => {
 const dispatchSpy = jest.spyOn(store, "dispatch");
 
 const [coinMalta2020] = mockCoins;
+
+const mockedUsedNavigate = jest.fn();
+jest.mock("react-router-dom", () => ({
+  ...jest.requireActual("react-router-dom"),
+  useNavigate: () => mockedUsedNavigate,
+}));
 
 describe("Given the useApi custom hook", () => {
   describe("When its loadAllCoins function is called", () => {
@@ -113,21 +118,26 @@ describe("Given the useApi custom hook", () => {
   });
 
   describe("When its createCoin function is called", () => {
-    beforeEach(() => {
-      server.resetHandlers(...handlers);
-    });
-    test("Then it should call the dispatch method", async () => {
+    test("Then it should call the dispatch method with setModalActionCreator with the message 'The coin was created'", async () => {
       const {
         result: {
           current: { createCoin },
         },
       } = renderHook(() => useApi(), { wrapper: Wrapper });
 
+      const successMessage = "The coin was created";
+
+      const modal: ModalPayload = {
+        isError: false,
+        isSuccess: true,
+        message: successMessage,
+      };
+
       await createCoin(coinMalta2020);
 
       expect(dispatchSpy).toHaveBeenNthCalledWith(
-        2,
-        createCoinActionCreator(coinMalta2020)
+        3,
+        setModalActionCreator(modal)
       );
     });
   });

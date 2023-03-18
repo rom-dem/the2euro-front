@@ -1,5 +1,5 @@
 import { screen } from "@testing-library/react";
-import { renderWithProviders } from "../../testUtil/renderWithProviders";
+import { renderRouterWithProviders } from "../../testUtil/renderRouterWithProviders";
 import HomePage from "./HomePage";
 
 describe("Given HomePage component", () => {
@@ -7,7 +7,7 @@ describe("Given HomePage component", () => {
     test("Then it should show the heading 'The 2 Euro Collection'", () => {
       const headingText = /the 2 euro collection/i;
 
-      renderWithProviders(<HomePage />);
+      renderRouterWithProviders({}, <HomePage />);
       const heading = screen.getByRole("heading", { name: headingText });
 
       expect(heading).toBeInTheDocument();

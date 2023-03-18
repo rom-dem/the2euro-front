@@ -1,11 +1,15 @@
 import { useCallback } from "react";
+import { useNavigate } from "react-router-dom";
 import endpoints from "../../routers/endpoints";
 import {
-  createCoinActionCreator,
   deleteCoinByIdActionCreator,
   loadAllCoinsActionCreator,
 } from "../../store/features/coins/coinsSlice";
-import { CoinsState, CoinStructure } from "../../store/features/coins/types";
+import {
+  CoinsState,
+  CoinStructure,
+  CoinStructureData,
+} from "../../store/features/coins/types";
 import {
   setIsLoadingActionCreator,
   setModalActionCreator,
@@ -15,6 +19,7 @@ import { useAppDispatch, useAppSelector } from "../../store/hooks";
 
 const useApi = () => {
   const dispatch = useAppDispatch();
+  const navigateTo = useNavigate();
 
   const { token } = useAppSelector((state) => state.user);
 
@@ -99,7 +104,7 @@ const useApi = () => {
   );
 
   const createCoin = useCallback(
-    async (coin: CoinStructure) => {
+    async (coin: CoinStructureData) => {
       dispatch(setIsLoadingActionCreator());
 
       try {
@@ -107,6 +112,7 @@ const useApi = () => {
           `${process.env.REACT_APP_API_URL}${endpoints.coins}${endpoints.create}`,
           {
             method: "POST",
+            body: JSON.stringify(coin),
             headers: {
               "Content-Type": "application/json",
               Authorization: `Bearer ${token}`,
@@ -118,10 +124,8 @@ const useApi = () => {
           const errorMessage = "Couldn't create the coin";
           throw new Error(errorMessage);
         }
-
-        dispatch(createCoinActionCreator(coin));
-
         dispatch(unsetIsLoadingActionCreator());
+        navigateTo(endpoints.home);
         dispatch(
           setModalActionCreator({
             isSuccess: true,
@@ -143,7 +147,7 @@ const useApi = () => {
         );
       }
     },
-    [dispatch, token]
+    [dispatch, navigateTo, token]
   );
 
   return { loadAllCoins, deleteCoinById, createCoin };
