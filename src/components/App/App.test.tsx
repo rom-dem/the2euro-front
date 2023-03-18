@@ -13,14 +13,14 @@ describe("Given the App component", () => {
     });
   });
   describe("When fails to render", () => {
-    test("Then it should show 3 buttons: home, my coins and login", () => {
+    test("Then it should show 3 buttons: home, create and login", () => {
       const loginText = /login/i;
-      const myCoinsText = /my coins/i;
+      const createText = /create/i;
       const homeText = /home/i;
 
       renderRouterWithProviders({});
       const loginButton = screen.getByRole("link", { name: loginText });
-      const myCoinsButton = screen.getByRole("link", { name: myCoinsText });
+      const myCoinsButton = screen.getByRole("link", { name: createText });
       const homeButton = screen.getByRole("link", { name: homeText });
 
       expect(loginButton).toBeInTheDocument();
