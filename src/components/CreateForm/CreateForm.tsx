@@ -160,7 +160,7 @@ const CreateForm = (): JSX.Element => {
           <textarea
             className="form__input"
             name="description"
-            aria-label="short description"
+            aria-label="long description"
             placeholder="Type a complete description"
             onChange={handleCreateCoinData}
           />
