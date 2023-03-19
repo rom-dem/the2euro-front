@@ -30,6 +30,19 @@ export const coinMalta2020: CoinStructure = {
   owner: "anna",
 };
 
+export const coinZimbabwe2000: CoinStructure = {
+  country: "Zimbabwe",
+  year: 2000,
+  issuingVolume: 75000,
+  feature: "70 years of the Universal Declaration of Human Rights",
+  description:
+    "The design of the coin depicts seven staircases (representing the seven parishes or administrative divisions of Andorra) in the shape of mountains that lead to the valley, where there is the name of the issuing country ‘ANDORRA’ and the year of issue ‘2018’. These staircases are, at the same time, the branches of a tree symbolizing humankind, of which Andorra is an integral part. 30 leaves come out",
+  image:
+    "https://res.cloudinary.com/ducqy82uw/image/upload/v1678818080/comm_2018_andorra_70yrs_declhumrights_we9ryh.webp",
+  id: "zimbabwe2000",
+  owner: "64062ff2d50bc0923b40f370",
+};
+
 export const coinAndorra2018CreateForm = {
   country: "Andorra",
   year: "2018",
