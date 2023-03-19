@@ -8,6 +8,7 @@ interface Routes {
   id: string;
   create: string;
   register: string;
+  coin: string;
 }
 
 const endpoints: Routes = {
@@ -20,6 +21,7 @@ const endpoints: Routes = {
   id: "/:id",
   create: "/create",
   register: "/register",
+  coin: "/coin",
 };
 
 export default endpoints;

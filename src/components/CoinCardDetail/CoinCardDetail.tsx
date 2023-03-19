@@ -2,6 +2,7 @@ import useApi from "../../hooks/useApi/useApi";
 import { CoinStructure } from "../../store/features/coins/types";
 import { useAppSelector } from "../../store/hooks";
 import Button from "../Button/Button";
+import CoinCardDetailStyled from "./CoinCardDetailStyled";
 
 interface CoinProps {
   coin: CoinStructure;
@@ -19,7 +20,7 @@ const CoinCardDetail = ({ coin, deleteButton }: CoinProps): JSX.Element => {
   };
 
   return (
-    <div>
+    <CoinCardDetailStyled>
       <div className="card__image-container">
         <img
           src={coin.image}
@@ -30,12 +31,20 @@ const CoinCardDetail = ({ coin, deleteButton }: CoinProps): JSX.Element => {
         />
       </div>
       <div className="card__details">
-        <span className="card__year">Year: {coin.year}</span>
+        <span className="card__year">
+          {" "}
+          <span className="card__strong">Year: </span>
+          {coin.year}
+        </span>
         <h2 className="card__country">{coin.country}</h2>
         <span className="card__volume">
-          Issuing volume: {coin.issuingVolume}
+          <span className="card__strong">Issuing volume: </span>
+          {coin.issuingVolume}
         </span>
-        <span className="card__feature">Feature: {coin.feature}</span>
+        <span className="card__feature">
+          <span className="card__strong">Feature: </span>
+          {coin.feature}
+        </span>
         <span className="card__description">{coin.description}</span>
       </div>
       {userId === coin.owner && (
@@ -48,7 +57,7 @@ const CoinCardDetail = ({ coin, deleteButton }: CoinProps): JSX.Element => {
           />
         </div>
       )}
-    </div>
+    </CoinCardDetailStyled>
   );
 };
 
