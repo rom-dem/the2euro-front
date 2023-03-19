@@ -44,4 +44,7 @@ export const coinAndorra2018CreateForm = {
 
 export const mockCoins: CoinsStructure = [coinAndorra2018, coinMalta2020];
 
-export const mockCoinsFromApi: CoinsState = { coins: mockCoins };
+export const mockCoinsFromApi: CoinsState = {
+  coins: mockCoins,
+  coinDetail: coinAndorra2018,
+};
