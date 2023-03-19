@@ -11,7 +11,7 @@ const routes: RouteObject[] = [
     element: <App />,
     children: [
       { path: endpoints.login, element: <LoginPage /> },
-      { path: endpoints.home, element: <HomePage /> },
+      { path: endpoints.slash, element: <HomePage /> },
       { path: endpoints.createCoin, element: <CreatePage /> },
     ],
   },

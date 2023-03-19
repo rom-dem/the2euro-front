@@ -46,5 +46,5 @@ export const mockCoins: CoinsStructure = [coinAndorra2018, coinMalta2020];
 
 export const mockCoinsFromApi: CoinsState = {
   coins: mockCoins,
-  coinDetail: coinAndorra2018,
+  coin: coinAndorra2018,
 };

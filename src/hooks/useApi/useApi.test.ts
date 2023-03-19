@@ -5,6 +5,7 @@ import useApi from "./useApi";
 import { mockCoins } from "../../mocks/coinMocks";
 import {
   deleteCoinByIdActionCreator,
+  getCoinByIdActionCreator,
   loadAllCoinsActionCreator,
 } from "../../store/features/coins/coinsSlice";
 import { ModalPayload } from "../../store/features/ui/types";
@@ -21,6 +22,7 @@ const dispatchSpy = jest.spyOn(store, "dispatch");
 const [coinMalta2020] = mockCoins;
 
 const mockedUsedNavigate = jest.fn();
+
 jest.mock("react-router-dom", () => ({
   ...jest.requireActual("react-router-dom"),
   useNavigate: () => mockedUsedNavigate,
@@ -162,6 +164,51 @@ describe("Given the useApi custom hook", () => {
       };
 
       await createCoin(coinMalta2020);
+
+      expect(dispatchSpy).toHaveBeenNthCalledWith(
+        3,
+        setModalActionCreator(modal)
+      );
+    });
+  });
+
+  describe("When its getCoinById function is called", () => {
+    test("Then it should call its dispatch method", async () => {
+      const {
+        result: {
+          current: { getCoinById },
+        },
+      } = renderHook(() => useApi(), { wrapper: Wrapper });
+
+      await getCoinById(coinMalta2020.id);
+
+      expect(dispatchSpy).toHaveBeenNthCalledWith(
+        2,
+        getCoinByIdActionCreator(coinMalta2020)
+      );
+    });
+  });
+
+  describe("When its getCoinById function is called but fails", () => {
+    beforeEach(() => {
+      server.resetHandlers(...errorHandlers);
+    });
+    test("Then it should call its dispatch method with setModalActionCreator with the message 'Couldn't load the coin'", async () => {
+      const {
+        result: {
+          current: { getCoinById },
+        },
+      } = renderHook(() => useApi(), { wrapper: Wrapper });
+
+      const errorMessage = "Couldn't load the coin";
+
+      const modal: ModalPayload = {
+        isError: true,
+        isSuccess: false,
+        message: errorMessage,
+      };
+
+      await getCoinById(coinMalta2020.id);
 
       expect(dispatchSpy).toHaveBeenNthCalledWith(
         3,

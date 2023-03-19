@@ -33,5 +33,5 @@ export const preloadedLoggedoutState: UserState = {
 
 export const preloadedCoinsState: CoinsState = {
   coins: [coinAndorra2018],
-  coinDetail: coinAndorra2018,
+  coin: coinAndorra2018,
 };

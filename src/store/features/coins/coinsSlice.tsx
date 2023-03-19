@@ -3,7 +3,7 @@ import { CoinsState, CoinsStructure, CoinStructure } from "./types";
 
 export const initialState: CoinsState = {
   coins: [],
-  coinDetail: {
+  coin: {
     country: "",
     year: 0,
     feature: "",
@@ -40,7 +40,7 @@ const coinsSlice = createSlice({
       action: PayloadAction<CoinStructure>
     ): CoinsState => ({
       ...currentCoinState,
-      coinDetail: action.payload,
+      coin: action.payload,
     }),
   },
 });

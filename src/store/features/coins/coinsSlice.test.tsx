@@ -56,7 +56,7 @@ describe("Given a coinReducer reducer", () => {
       const newCoinList = coinsReducer(initialCoinsList, getCoinByIdAction);
       const expectedList: CoinsState = {
         ...initialState,
-        coinDetail: coinAndorra2018,
+        coin: coinAndorra2018,
       };
 
       expect(expectedList).toStrictEqual(newCoinList);
