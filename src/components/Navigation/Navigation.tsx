@@ -12,7 +12,7 @@ const Navigation = (): JSX.Element => {
 
   return isLogged ? (
     <NavigationStyled>
-      <NavLink to={endpoints.home} title="home">
+      <NavLink to={endpoints.slash} title="home">
         <FontAwesomeIcon name="home" icon={regular("building")} />
       </NavLink>
 
@@ -26,7 +26,7 @@ const Navigation = (): JSX.Element => {
     </NavigationStyled>
   ) : (
     <NavigationStyled>
-      <NavLink to={endpoints.home} title="home">
+      <NavLink to={endpoints.slash} title="home">
         <FontAwesomeIcon name="home" icon={regular("building")} />
       </NavLink>
 

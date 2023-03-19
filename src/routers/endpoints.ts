@@ -1,6 +1,6 @@
 interface Routes {
   login: string;
-  home: string;
+  slash: string;
   coins: string;
   createCoin: string;
   users: string;
@@ -12,7 +12,7 @@ interface Routes {
 
 const endpoints: Routes = {
   login: "/login",
-  home: "/",
+  slash: "/",
   coins: "/coins",
   createCoin: "/create",
   users: "/users",

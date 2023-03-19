@@ -1,8 +1,18 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { CoinsState, CoinsStructure, CoinStructure } from "./types";
 
-const initialState: CoinsState = {
+export const initialState: CoinsState = {
   coins: [],
+  coin: {
+    country: "",
+    year: 0,
+    feature: "",
+    description: "",
+    image: "",
+    issuingVolume: 0,
+    owner: "",
+    id: "",
+  },
 };
 
 const coinsSlice = createSlice({
@@ -19,17 +29,18 @@ const coinsSlice = createSlice({
     deleteCoinById: (
       currentCoinState,
       action: PayloadAction<CoinStructure>
-    ): CoinsState => {
-      const updatedList = currentCoinState.coins.filter(
+    ): CoinsState => ({
+      ...currentCoinState,
+      coins: currentCoinState.coins.filter(
         (coin) => coin.id !== action.payload.id
-      );
-      return { coins: updatedList };
-    },
-    createCoin: (
+      ),
+    }),
+    getCoinById: (
       currentCoinState,
       action: PayloadAction<CoinStructure>
     ): CoinsState => ({
-      coins: [...currentCoinState.coins, action.payload],
+      ...currentCoinState,
+      coin: action.payload,
     }),
   },
 });
@@ -38,5 +49,5 @@ export const coinsReducer = coinsSlice.reducer;
 export const {
   loadAllCoins: loadAllCoinsActionCreator,
   deleteCoinById: deleteCoinByIdActionCreator,
-  createCoin: createCoinActionCreator,
+  getCoinById: getCoinByIdActionCreator,
 } = coinsSlice.actions;

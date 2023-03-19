@@ -8,7 +8,7 @@ const LoginPage = (): JSX.Element => {
   const { isLogged } = useAppSelector((state) => state.user);
 
   return isLogged ? (
-    <Navigate to={endpoints.home} replace={true} />
+    <Navigate to={endpoints.slash} replace={true} />
   ) : (
     <LoginPageStyled>
       <div className="login-page__logo">
@@ -34,7 +34,7 @@ const LoginPage = (): JSX.Element => {
         </span>
         <a
           className="login-page__register register__link"
-          href={endpoints.home}
+          href={endpoints.slash}
         >
           Register
         </a>

@@ -16,4 +16,5 @@ export type CoinsStructure = CoinStructure[];
 
 export interface CoinsState {
   coins: CoinsStructure;
+  coin: CoinStructure;
 }
