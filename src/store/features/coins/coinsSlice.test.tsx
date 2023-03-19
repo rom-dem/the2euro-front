@@ -6,6 +6,7 @@ import {
 import {
   coinsReducer,
   deleteCoinByIdActionCreator,
+  getCoinByIdActionCreator,
   initialState,
   loadAllCoinsActionCreator,
 } from "./coinsSlice";
@@ -39,6 +40,23 @@ describe("Given a coinReducer reducer", () => {
       const expectedList: CoinsState = {
         ...initialState,
         coins: [coinAndorra2018],
+      };
+
+      expect(expectedList).toStrictEqual(newCoinList);
+    });
+  });
+
+  describe("When it receives a getCoinById action and a coin", () => {
+    test("Then it should give a new state coinDetail with that coin", () => {
+      const initialCoinsList: CoinsState = {
+        ...initialState,
+      };
+
+      const getCoinByIdAction = getCoinByIdActionCreator(coinAndorra2018);
+      const newCoinList = coinsReducer(initialCoinsList, getCoinByIdAction);
+      const expectedList: CoinsState = {
+        ...initialState,
+        coinDetail: coinAndorra2018,
       };
 
       expect(expectedList).toStrictEqual(newCoinList);
