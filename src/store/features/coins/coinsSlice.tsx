@@ -35,6 +35,13 @@ const coinsSlice = createSlice({
         (coin) => coin.id !== action.payload.id
       ),
     }),
+    getCoinById: (
+      currentCoinState,
+      action: PayloadAction<CoinStructure>
+    ): CoinsState => ({
+      ...currentCoinState,
+      coinDetail: action.payload,
+    }),
   },
 });
 
@@ -42,4 +49,5 @@ export const coinsReducer = coinsSlice.reducer;
 export const {
   loadAllCoins: loadAllCoinsActionCreator,
   deleteCoinById: deleteCoinByIdActionCreator,
+  getCoinById: getCoinByIdActionCreator,
 } = coinsSlice.actions;
