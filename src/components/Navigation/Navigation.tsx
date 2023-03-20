@@ -13,29 +13,29 @@ const Navigation = (): JSX.Element => {
   return isLogged ? (
     <NavigationStyled>
       <NavLink to={endpoints.slash} title="home">
-        <FontAwesomeIcon name="home" icon={regular("building")} />
+        <FontAwesomeIcon aria-label="home" icon={regular("building")} />
       </NavLink>
 
       <NavLink to={endpoints.create} title="create">
-        <FontAwesomeIcon aria-label="" name="create" icon={solid("plus")} />
+        <FontAwesomeIcon aria-label="create" icon={solid("plus")} />
       </NavLink>
 
       <NavLink to={endpoints.login} onClick={() => logoutUser()} title="logout">
-        <FontAwesomeIcon icon={solid("user-slash")} />
+        <FontAwesomeIcon aria-label="user" icon={solid("user-slash")} />
       </NavLink>
     </NavigationStyled>
   ) : (
     <NavigationStyled>
       <NavLink to={endpoints.slash} title="home">
-        <FontAwesomeIcon name="home" icon={regular("building")} />
+        <FontAwesomeIcon aria-label="home" icon={regular("building")} />
       </NavLink>
 
       <NavLink to={endpoints.create} title="create">
-        <FontAwesomeIcon aria-label="" name="create" icon={solid("plus")} />
+        <FontAwesomeIcon aria-label="create" icon={solid("plus")} />
       </NavLink>
 
       <NavLink to={endpoints.login} title="login">
-        <FontAwesomeIcon icon={regular("user")} />
+        <FontAwesomeIcon aria-label="user" icon={regular("user")} />
       </NavLink>
     </NavigationStyled>
   );
