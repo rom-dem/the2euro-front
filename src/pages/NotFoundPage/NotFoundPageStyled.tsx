@@ -9,8 +9,8 @@ const NotFoundPageStyled = styled(StyledPage)`
   gap: 25px;
 
   svg {
-    max-height: 320px;
-    max-width: 320px;
+    max-height: 280px;
+    max-width: 280px;
     border-radius: 50%;
     overflow: hidden;
     object-fit: cover;
@@ -18,7 +18,7 @@ const NotFoundPageStyled = styled(StyledPage)`
   }
 
   button {
-    min-width: 320px;
+    min-width: 280px;
   }
 
   .title {
