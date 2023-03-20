@@ -55,7 +55,7 @@ const CoinCard = ({
           />
           <Button
             icon={editButton}
-            isDisabled={false}
+            isDisabled={true}
             buttonName={"edit coin"}
           />
         </div>

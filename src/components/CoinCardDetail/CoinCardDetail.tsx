@@ -64,7 +64,7 @@ const CoinCardDetail = ({ coin }: CoinProps): JSX.Element => {
           <Button
             icon={<EditIcon />}
             text={"Edit this coin"}
-            isDisabled={false}
+            isDisabled={true}
             buttonName={"edit coin"}
           />
         </div>
