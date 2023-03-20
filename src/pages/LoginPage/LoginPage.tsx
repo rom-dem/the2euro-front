@@ -32,10 +32,7 @@ const LoginPage = (): JSX.Element => {
         <span className="login-page__register register__question">
           Need an account?
         </span>
-        <a
-          className="login-page__register register__link"
-          href={endpoints.slash}
-        >
+        <a className="login-page__register register__link" href="/register">
           Register
         </a>
       </div>
