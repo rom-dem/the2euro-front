@@ -5,14 +5,18 @@ import { CoinStructure } from "../../store/features/coins/types";
 import { useAppSelector } from "../../store/hooks";
 import Button from "../Button/Button";
 import CoinCardDetailStyled from "./CoinCardDetailStyled";
+import { ReactComponent as EditIcon } from "../../assets/icons/edit.svg";
+import { ReactComponent as DeleteIcon } from "../../assets/icons/delete.svg";
 
 interface CoinProps {
   coin: CoinStructure;
   deleteButton?: JSX.Element;
+  editButton?: JSX.Element;
   buttonName?: string;
+  buttonText?: string;
 }
 
-const CoinCardDetail = ({ coin, deleteButton }: CoinProps): JSX.Element => {
+const CoinCardDetail = ({ coin }: CoinProps): JSX.Element => {
   const userId = useAppSelector((state) => state.user.id);
 
   const { deleteCoinById } = useApi();
@@ -33,12 +37,9 @@ const CoinCardDetail = ({ coin, deleteButton }: CoinProps): JSX.Element => {
         />
       </div>
       <div className="card__details">
-        <span className="card__year">
-          {" "}
-          <span className="card__strong">Year: </span>
-          {coin.year}
-        </span>
-        <h2 className="card__country">{coin.country}</h2>
+        <h2 className="card__country">
+          {coin.country}, {coin.year}
+        </h2>
         <span className="card__volume">
           <span className="card__strong">Issuing volume: </span>
           {coin.issuingVolume}
@@ -50,16 +51,23 @@ const CoinCardDetail = ({ coin, deleteButton }: CoinProps): JSX.Element => {
         <span className="card__description">{coin.description}</span>
       </div>
       {userId === coin.owner && (
-        <Link to={`${endpoints.slash}`}>
-          <div className="card__buttons">
+        <div className="card__buttons">
+          <Link to={`${endpoints.slash}`}>
             <Button
-              icon={deleteButton}
+              icon={<DeleteIcon />}
+              text={"Delete coin"}
               isDisabled={false}
               onClick={handleDelete}
               buttonName={"delete coin"}
             />
-          </div>
-        </Link>
+          </Link>
+          <Button
+            icon={<EditIcon />}
+            text={"Edit this coin"}
+            isDisabled={false}
+            buttonName={"edit coin"}
+          />
+        </div>
       )}
     </CoinCardDetailStyled>
   );
