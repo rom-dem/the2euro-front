@@ -13,6 +13,7 @@ const CoinCardDetailStyled = styled.article`
       flex: 2;
       padding-left: 10px;
       justify-content: space-evenly;
+      padding-bottom: 15px;
     }
 
     &__year {
@@ -21,7 +22,7 @@ const CoinCardDetailStyled = styled.article`
 
     &__country {
       font-size: ${(props) => props.theme.fonts.textFontSizeXXL};
-      padding: 25px 0 25px 0;
+      padding: 15px 0 25px 0;
     }
 
     &__volume,
@@ -60,9 +61,12 @@ const CoinCardDetailStyled = styled.article`
 
   button {
     height: 48px;
-    width: 48px;
+    width: 100%;
     display: flex;
-    align-self: flex-end;
+    align-items: center;
+    flex-direction: row-reverse;
+    justify-content: center;
+    gap: 15px;
   }
 `;
 
