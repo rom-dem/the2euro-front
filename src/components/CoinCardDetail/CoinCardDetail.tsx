@@ -1,4 +1,6 @@
+import { Link } from "react-router-dom";
 import useApi from "../../hooks/useApi/useApi";
+import endpoints from "../../routers/endpoints";
 import { CoinStructure } from "../../store/features/coins/types";
 import { useAppSelector } from "../../store/hooks";
 import Button from "../Button/Button";
@@ -48,14 +50,16 @@ const CoinCardDetail = ({ coin, deleteButton }: CoinProps): JSX.Element => {
         <span className="card__description">{coin.description}</span>
       </div>
       {userId === coin.owner && (
-        <div className="card__buttons">
-          <Button
-            icon={deleteButton}
-            isDisabled={false}
-            onClick={handleDelete}
-            buttonName={"delete coin"}
-          />
-        </div>
+        <Link to={`${endpoints.slash}`}>
+          <div className="card__buttons">
+            <Button
+              icon={deleteButton}
+              isDisabled={false}
+              onClick={handleDelete}
+              buttonName={"delete coin"}
+            />
+          </div>
+        </Link>
       )}
     </CoinCardDetailStyled>
   );

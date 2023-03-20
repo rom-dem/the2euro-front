@@ -1,4 +1,4 @@
-import { screen } from "@testing-library/react";
+import { act, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { preloadedLoggedinState } from "../../mocks/preloadedUiState";
 import { renderRouterWithProviders } from "../../testUtil/renderRouterWithProviders";
@@ -37,7 +37,7 @@ describe("Given a Navigation component", () => {
         <Navigation />
       );
       const logoutButton = screen.getByRole("link", { name: logoutText });
-      await userEvent.click(logoutButton);
+      await act(async () => await userEvent.click(logoutButton));
 
       expect(mockLogoutUser).toHaveBeenCalled();
     });

@@ -4,6 +4,7 @@ import HomePage from "../pages/HomePage/HomePage";
 import LoginPage from "../pages/LoginPage/LoginPage";
 import CreatePage from "../pages/CreatePage/CreatePage";
 import endpoints from "./endpoints";
+import DetailPage from "../pages/DetailPage/DetailPage";
 
 const routes: RouteObject[] = [
   {
@@ -13,6 +14,7 @@ const routes: RouteObject[] = [
       { path: endpoints.login, element: <LoginPage /> },
       { path: endpoints.slash, element: <HomePage /> },
       { path: endpoints.createCoin, element: <CreatePage /> },
+      { path: `${endpoints.coin}${endpoints.id}`, element: <DetailPage /> },
     ],
   },
 ];

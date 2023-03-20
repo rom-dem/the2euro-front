@@ -1,4 +1,4 @@
-import { screen } from "@testing-library/react";
+import { act, screen } from "@testing-library/react";
 import { coinAndorra2018 } from "../../mocks/coinMocks";
 import { renderWithProviders } from "../../testUtil/renderWithProviders";
 import CoinCardDetail from "./CoinCardDetail";
@@ -38,8 +38,7 @@ describe("Given CoinCardDetail component", () => {
       );
 
       const deleteButton = screen.getByRole("button", { name: "delete coin" });
-
-      await userEvent.click(deleteButton);
+      await act(async () => await userEvent.click(deleteButton));
 
       expect(mockDeleteCoinById).toHaveBeenCalledWith(coinAndorra2018);
     });
