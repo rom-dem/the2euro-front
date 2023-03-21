@@ -1,3 +1,5 @@
+import * as React from "react";
+import AfterImage from "afterimage";
 import { Link } from "react-router-dom";
 import useApi from "../../hooks/useApi/useApi";
 import endpoints from "../../routers/endpoints";
@@ -30,13 +32,14 @@ const CoinCard = ({
     <CoinCardStyled>
       <div className="card__image-container">
         <Link to={`${endpoints.coin}${endpoints.slash}${coin.id}`}>
-          <img
+          <AfterImage
             src={coin.image}
             alt={coin.description}
             height={120}
             width={120}
+            aspectHeight={1}
+            aspectWidth={1}
             className="card__image"
-            loading="lazy"
           />
         </Link>
       </div>
