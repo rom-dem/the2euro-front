@@ -36,6 +36,7 @@ const CoinCard = ({
             height={120}
             width={120}
             className="card__image"
+            loading="lazy"
           />
         </Link>
       </div>

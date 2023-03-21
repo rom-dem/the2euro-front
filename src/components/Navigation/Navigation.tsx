@@ -10,6 +10,8 @@ const Navigation = (): JSX.Element => {
   const { isLogged } = useAppSelector((state) => state.user);
   const { logoutUser } = useUser();
 
+  window.scrollTo({ top: 0, behavior: "smooth" });
+
   return isLogged ? (
     <NavigationStyled>
       <NavLink to={endpoints.slash} title="home">

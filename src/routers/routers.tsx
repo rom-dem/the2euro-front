@@ -1,11 +1,13 @@
+import { lazy } from "react";
 import { createBrowserRouter, RouteObject } from "react-router-dom";
 import App from "../components/App/App";
 import HomePage from "../pages/HomePage/HomePage";
-import LoginPage from "../pages/LoginPage/LoginPage";
-import CreatePage from "../pages/CreatePage/CreatePage";
 import endpoints from "./endpoints";
-import DetailPage from "../pages/DetailPage/DetailPage";
-import NotFoundPage from "../pages/NotFoundPage/NotFoundPage";
+
+const LoginPage = lazy(() => import("../pages/LoginPage/LoginPage"));
+const CreatePage = lazy(() => import("../pages/CreatePage/CreatePage"));
+const DetailPage = lazy(() => import("../pages/DetailPage/DetailPage"));
+const NotFoundPage = lazy(() => import("../pages/NotFoundPage/NotFoundPage"));
 
 const routes: RouteObject[] = [
   {
