@@ -1,7 +1,8 @@
-import { useEffect } from "react";
+import { lazy, useEffect } from "react";
 import CoinCardsList from "../../components/CoinCardsList/CoinCardsList";
 import useApi from "../../hooks/useApi/useApi";
-import HomePageStyled from "./HomePageStyled";
+
+const HomePageStyled = lazy(() => import("./HomePageStyled"));
 
 const HomePage = (): JSX.Element => {
   const { loadAllCoins } = useApi();

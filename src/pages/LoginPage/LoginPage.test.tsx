@@ -1,4 +1,4 @@
-import { screen } from "@testing-library/react";
+import { screen, waitFor } from "@testing-library/react";
 import * as ReactRouterDom from "react-router-dom";
 import { UserState } from "../../store/features/users/types";
 import { renderRouterWithProviders } from "../../testUtil/renderRouterWithProviders";
@@ -11,11 +11,15 @@ jest.mock("react-router-dom", () => ({
 
 describe("Given a LoginPage page", () => {
   describe("When rendered", () => {
-    test("Then it should show a submit button", () => {
+    test("Then it should show a submit button", async () => {
       const buttonText = /log in/i;
 
+      let button;
+
       renderRouterWithProviders({}, <LoginPage />);
-      const button = screen.getByRole("button", { name: buttonText });
+      await waitFor(
+        () => (button = screen.getByRole("button", { name: buttonText }))
+      );
 
       expect(button).toBeInTheDocument();
     });

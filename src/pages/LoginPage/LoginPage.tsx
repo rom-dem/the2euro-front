@@ -1,8 +1,10 @@
+import { lazy } from "react";
 import { Navigate } from "react-router-dom";
 import LoginForm from "../../components/LoginForm/LoginForm";
 import endpoints from "../../routers/endpoints";
 import { useAppSelector } from "../../store/hooks";
-import LoginPageStyled from "./LoginPageStyled";
+
+const LoginPageStyled = lazy(() => import("./LoginPageStyled"));
 
 const LoginPage = (): JSX.Element => {
   const { isLogged } = useAppSelector((state) => state.user);
