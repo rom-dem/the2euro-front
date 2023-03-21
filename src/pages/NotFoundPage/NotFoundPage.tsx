@@ -1,8 +1,10 @@
+import { lazy } from "react";
 import { Link } from "react-router-dom";
 import { ReactComponent as CincDuros } from "../../assets/icons/cincDuros.svg";
 import Button from "../../components/Button/Button";
 import endpoints from "../../routers/endpoints";
-import NotFoundPageStyled from "./NotFoundPageStyled";
+
+const NotFoundPageStyled = lazy(() => import("./NotFoundPageStyled"));
 
 const NotFoundPage = (): JSX.Element => {
   return (

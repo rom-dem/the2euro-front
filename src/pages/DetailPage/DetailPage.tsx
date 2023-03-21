@@ -1,9 +1,10 @@
-import { useEffect } from "react";
+import { lazy, useEffect } from "react";
 import { useParams } from "react-router";
 import CoinCardDetail from "../../components/CoinCardDetail/CoinCardDetail";
 import useApi from "../../hooks/useApi/useApi";
 import { useAppSelector } from "../../store/hooks";
-import DetailPageStyled from "./DetailPageStyled";
+
+const DetailPageStyled = lazy(() => import("./DetailPageStyled"));
 
 const DetailPage = (): JSX.Element => {
   const { id } = useParams();
