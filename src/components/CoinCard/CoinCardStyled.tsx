@@ -35,12 +35,6 @@ const CoinCardStyled = styled.article`
       overflow: hidden;
     }
 
-    &__image {
-      object-fit: cover;
-      width: 100%;
-      height: 100%;
-    }
-
     &__buttons {
       display: flex;
       flex-direction: column;
@@ -53,6 +47,14 @@ const CoinCardStyled = styled.article`
     width: 48px;
     display: flex;
     align-items: center;
+  }
+
+  .afterimage {
+    &__image {
+      object-fit: cover !important;
+      width: 120px !important;
+      height: 120px !important;
+    }
   }
 `;
 
