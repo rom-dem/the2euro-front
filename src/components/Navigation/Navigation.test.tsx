@@ -10,6 +10,8 @@ jest.mock("../../hooks/useUser/useUser", () => () => ({
   logoutUser: mockLogoutUser,
 }));
 
+window.scrollTo = jest.fn();
+
 describe("Given a Navigation component", () => {
   describe("When rendered", () => {
     test("Then it should show 3 buttons: home, create and login", async () => {
