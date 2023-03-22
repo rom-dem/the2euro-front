@@ -2,6 +2,8 @@ import { screen, waitFor } from "@testing-library/react";
 import { renderRouterWithProviders } from "../../testUtil/renderRouterWithProviders";
 import HomePage from "./HomePage";
 
+window.scrollTo = jest.fn();
+
 describe("Given HomePage component", () => {
   describe("When renderes", () => {
     test("Then it should show the heading 'The 2 Euro Collection'", async () => {

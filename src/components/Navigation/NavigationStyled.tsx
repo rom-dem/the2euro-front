@@ -10,6 +10,10 @@ const NavigationStyled = styled.nav`
   padding: 10px 20px 5px 20px;
   margin-left: -20px;
 
+  button {
+    background-color: transparent;
+  }
+
   svg {
     height: 48px;
     width: 48px;

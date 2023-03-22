@@ -1,10 +1,12 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { regular, solid } from "@fortawesome/fontawesome-svg-core/import.macro";
 import { NavLink } from "react-router-dom";
 import NavigationStyled from "./NavigationStyled";
 import endpoints from "../../routers/endpoints";
 import { useAppSelector } from "../../store/hooks";
 import useUser from "../../hooks/useUser/useUser";
+import { ReactComponent as HomeIcon } from "../../assets/icons/home.svg";
+import { ReactComponent as CreateIcon } from "../../assets/icons/create.svg";
+import { ReactComponent as LogoutIcon } from "../../assets/icons/logout.svg";
+import { ReactComponent as LoginIcon } from "../../assets/icons/login.svg";
 
 const Navigation = (): JSX.Element => {
   const { isLogged } = useAppSelector((state) => state.user);
@@ -15,29 +17,29 @@ const Navigation = (): JSX.Element => {
   return isLogged ? (
     <NavigationStyled>
       <NavLink to={endpoints.slash} title="home">
-        <FontAwesomeIcon aria-label="home" icon={regular("building")} />
+        <HomeIcon />
       </NavLink>
 
       <NavLink to={endpoints.create} title="create">
-        <FontAwesomeIcon aria-label="create" icon={solid("plus")} />
+        <CreateIcon />
       </NavLink>
 
       <NavLink to={endpoints.login} onClick={() => logoutUser()} title="logout">
-        <FontAwesomeIcon aria-label="user" icon={solid("user-slash")} />
+        <LogoutIcon />
       </NavLink>
     </NavigationStyled>
   ) : (
     <NavigationStyled>
       <NavLink to={endpoints.slash} title="home">
-        <FontAwesomeIcon aria-label="home" icon={regular("building")} />
+        <HomeIcon />
       </NavLink>
 
       <NavLink to={endpoints.create} title="create">
-        <FontAwesomeIcon aria-label="create" icon={solid("plus")} />
+        <CreateIcon />
       </NavLink>
 
       <NavLink to={endpoints.login} title="login">
-        <FontAwesomeIcon aria-label="user" icon={regular("user")} />
+        <LoginIcon />
       </NavLink>
     </NavigationStyled>
   );

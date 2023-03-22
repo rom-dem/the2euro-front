@@ -20,13 +20,13 @@ describe("Given a Navigation component", () => {
       const homeText = /home/i;
 
       renderRouterWithProviders({}, <Navigation />);
-      const loginButton = screen.getByRole("link", { name: loginText });
-      const myCoinsButton = screen.getByRole("link", { name: createText });
-      const homeButton = screen.getByRole("link", { name: homeText });
+      const loginLink = screen.getByRole("link", { name: loginText });
+      const createLink = screen.getByRole("link", { name: createText });
+      const homeLink = screen.getByRole("link", { name: homeText });
 
-      expect(loginButton).toBeInTheDocument();
-      expect(myCoinsButton).toBeInTheDocument();
-      expect(homeButton).toBeInTheDocument();
+      expect(loginLink).toBeInTheDocument();
+      expect(createLink).toBeInTheDocument();
+      expect(homeLink).toBeInTheDocument();
     });
   });
 
@@ -38,8 +38,8 @@ describe("Given a Navigation component", () => {
         { user: preloadedLoggedinState },
         <Navigation />
       );
-      const logoutButton = screen.getByRole("link", { name: logoutText });
-      await act(async () => await userEvent.click(logoutButton));
+      const logoutLink = screen.getByRole("link", { name: logoutText });
+      await act(async () => await userEvent.click(logoutLink));
 
       expect(mockLogoutUser).toHaveBeenCalled();
     });
