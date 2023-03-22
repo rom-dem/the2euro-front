@@ -15,31 +15,31 @@ window.scrollTo = jest.fn();
 describe("Given a Navigation component", () => {
   describe("When rendered", () => {
     test("Then it should show 3 buttons: home, create and login", async () => {
-      const loginText = /user/i;
+      const loginText = /login/i;
       const createText = /create/i;
       const homeText = /home/i;
 
       renderRouterWithProviders({}, <Navigation />);
-      const loginButton = screen.getByRole("button", { name: loginText });
-      const myCoinsButton = screen.getByRole("button", { name: createText });
-      const homeButton = screen.getByRole("button", { name: homeText });
+      const loginLink = screen.getByRole("link", { name: loginText });
+      const createLink = screen.getByRole("link", { name: createText });
+      const homeLink = screen.getByRole("link", { name: homeText });
 
-      expect(loginButton).toBeInTheDocument();
-      expect(myCoinsButton).toBeInTheDocument();
-      expect(homeButton).toBeInTheDocument();
+      expect(loginLink).toBeInTheDocument();
+      expect(createLink).toBeInTheDocument();
+      expect(homeLink).toBeInTheDocument();
     });
   });
 
   describe("When rendered while the user is logged in", () => {
     test("Then it should show the button to log out", async () => {
-      const logoutText = /user/i;
+      const logoutText = /logout/i;
 
       renderRouterWithProviders(
         { user: preloadedLoggedinState },
         <Navigation />
       );
-      const logoutButton = screen.getByRole("button", { name: logoutText });
-      await act(async () => await userEvent.click(logoutButton));
+      const logoutLink = screen.getByRole("link", { name: logoutText });
+      await act(async () => await userEvent.click(logoutLink));
 
       expect(mockLogoutUser).toHaveBeenCalled();
     });

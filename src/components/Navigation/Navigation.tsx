@@ -7,7 +7,6 @@ import { ReactComponent as HomeIcon } from "../../assets/icons/home.svg";
 import { ReactComponent as CreateIcon } from "../../assets/icons/create.svg";
 import { ReactComponent as LogoutIcon } from "../../assets/icons/logout.svg";
 import { ReactComponent as LoginIcon } from "../../assets/icons/login.svg";
-import Button from "../Button/Button";
 
 const Navigation = (): JSX.Element => {
   const { isLogged } = useAppSelector((state) => state.user);
@@ -18,29 +17,29 @@ const Navigation = (): JSX.Element => {
   return isLogged ? (
     <NavigationStyled>
       <NavLink to={endpoints.slash} title="home">
-        <Button icon={<HomeIcon />} buttonName="home" />
+        <HomeIcon />
       </NavLink>
 
       <NavLink to={endpoints.create} title="create">
-        <Button icon={<CreateIcon />} buttonName="create" />
+        <CreateIcon />
       </NavLink>
 
       <NavLink to={endpoints.login} onClick={() => logoutUser()} title="logout">
-        <Button icon={<LogoutIcon />} buttonName="user" />
+        <LogoutIcon />
       </NavLink>
     </NavigationStyled>
   ) : (
     <NavigationStyled>
       <NavLink to={endpoints.slash} title="home">
-        <Button icon={<HomeIcon />} buttonName="home" />
+        <HomeIcon />
       </NavLink>
 
       <NavLink to={endpoints.create} title="create">
-        <Button icon={<CreateIcon />} buttonName="create" />
+        <CreateIcon />
       </NavLink>
 
       <NavLink to={endpoints.login} title="login">
-        <Button icon={<LoginIcon />} buttonName="user" />
+        <LoginIcon />
       </NavLink>
     </NavigationStyled>
   );

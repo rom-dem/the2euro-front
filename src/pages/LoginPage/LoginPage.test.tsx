@@ -9,6 +9,8 @@ jest.mock("react-router-dom", () => ({
   Navigate: jest.fn(),
 }));
 
+window.scrollTo = jest.fn();
+
 describe("Given a LoginPage page", () => {
   describe("When rendered", () => {
     test("Then it should show a submit button", async () => {

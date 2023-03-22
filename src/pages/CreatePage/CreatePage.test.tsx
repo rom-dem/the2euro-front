@@ -15,14 +15,14 @@ jest.mock("react-router-dom", () => ({
 describe("Given CreatePage page", () => {
   describe("When rendered", () => {
     test("Then it should show a heading with the text 'Add a new coin'", async () => {
-      const linkText = /add a new coin/i;
+      const headingText = /add a new coin/i;
 
       renderRouterWithProviders(
         { user: preloadedLoggedinState },
         <CreatePage />
       );
       const homeHeading = await screen.findByRole("heading", {
-        name: linkText,
+        name: headingText,
       });
 
       expect(homeHeading).toBeInTheDocument();
