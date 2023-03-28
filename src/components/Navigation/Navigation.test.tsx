@@ -1,6 +1,9 @@
 import { act, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { preloadedLoggedinState } from "../../mocks/preloadedUiState";
+import {
+  preloadedLoggedinState,
+  preloadedLoggedoutState,
+} from "../../mocks/preloadedUiState";
 import { renderRouterWithProviders } from "../../testUtil/renderRouterWithProviders";
 import Navigation from "./Navigation";
 
@@ -19,7 +22,10 @@ describe("Given a Navigation component", () => {
       const createText = /create/i;
       const homeText = /home/i;
 
-      renderRouterWithProviders({}, <Navigation />);
+      renderRouterWithProviders(
+        { user: preloadedLoggedoutState },
+        <Navigation />
+      );
       const loginLink = screen.getByRole("link", { name: loginText });
       const createLink = screen.getByRole("link", { name: createText });
       const homeLink = screen.getByRole("link", { name: homeText });

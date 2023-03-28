@@ -56,4 +56,4 @@ To run the testing suites use
 
 ## Backend
 
-This is a full stack project, you can find the backend code [here](https://github.com/isdi-coders-2023/Roman-Demchuk-Final-Project-back-202301-bcn)
+This is a full stack project, you can find the backend code [here](https://github.com/rom-dem/the2euro-back)
