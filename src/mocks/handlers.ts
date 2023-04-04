@@ -56,7 +56,7 @@ export const errorHandlers = [
     async (req, res, context) => res(context.status(500))
   ),
   rest.post(
-    `${process.env.REACT_APP_API_URL}${endpoints.users}${endpoints.create}`,
-    async (req, res, context) => res(context.status(500))
+    `${process.env.REACT_APP_API_URL}${endpoints.users}${endpoints.register}`,
+    async (req, res, context) => res(context.status(400))
   ),
 ];
