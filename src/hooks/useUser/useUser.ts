@@ -3,6 +3,7 @@ import {
   CustomTokenPayload,
   LoginResponse,
   UserCredentials,
+  UserRegisterCredentials,
   UseUserStructure,
 } from "./types";
 import jwtDecode from "jwt-decode";
@@ -20,6 +21,7 @@ import endpoints from "../../routers/endpoints";
 const useUser = (): UseUserStructure => {
   const apiUrl = process.env.REACT_APP_API_URL;
   const pathLogin = `${endpoints.users}${endpoints.login}`;
+  const pathRegister = `${endpoints.users}${endpoints.register}`;
   const dispatch = useAppDispatch();
 
   const loginUser = async (userCredentials: UserCredentials) => {
@@ -80,7 +82,48 @@ const useUser = (): UseUserStructure => {
     );
   };
 
-  return { loginUser, logoutUser };
+  const registerUser = async (
+    userRegisterCredentials: UserRegisterCredentials
+  ) => {
+    try {
+      dispatch(setIsLoadingActionCreator());
+
+      const response = await fetch(`${apiUrl}${pathRegister}`, {
+        method: "POST",
+        body: JSON.stringify(userRegisterCredentials),
+        headers: { "Content-type": "application/json" },
+      });
+
+      if (!response.ok) {
+        const errorMessage = "Wrong credentials";
+        const errorLogin = new Error(errorMessage);
+
+        throw errorLogin;
+      }
+
+      dispatch(unsetIsLoadingActionCreator());
+
+      dispatch(
+        setModalActionCreator({
+          isError: false,
+          isSuccess: true,
+          message: "You've been registered. Please log in.",
+        })
+      );
+    } catch (error) {
+      dispatch(unsetIsLoadingActionCreator());
+
+      dispatch(
+        setModalActionCreator({
+          isError: true,
+          isSuccess: false,
+          message: "Something went wrong, please try again.",
+        })
+      );
+    }
+  };
+
+  return { loginUser, logoutUser, registerUser };
 };
 
 export default useUser;

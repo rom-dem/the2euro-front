@@ -28,6 +28,10 @@ export const handlers = [
     async (req, res, context) =>
       res(context.status(200), context.json(mockCoinsFromApi))
   ),
+  rest.post(
+    `${process.env.REACT_APP_API_URL}${endpoints.users}${endpoints.register}`,
+    async (req, res, context) => res(context.status(201))
+  ),
 ];
 
 export const errorHandlers = [
@@ -50,5 +54,9 @@ export const errorHandlers = [
   rest.get(
     `${process.env.REACT_APP_API_URL}${endpoints.coins}${endpoints.id}`,
     async (req, res, context) => res(context.status(500))
+  ),
+  rest.post(
+    `${process.env.REACT_APP_API_URL}${endpoints.users}${endpoints.register}`,
+    async (req, res, context) => res(context.status(400))
   ),
 ];
