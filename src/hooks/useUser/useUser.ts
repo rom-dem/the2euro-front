@@ -18,6 +18,7 @@ import {
 } from "../../store/features/ui/uiSlice";
 import endpoints from "../../routers/endpoints";
 import { useNavigate } from "react-router-dom";
+import useToken from "../useToken/useToken";
 
 const useUser = (): UseUserStructure => {
   const apiUrl = process.env.REACT_APP_API_URL;
@@ -25,6 +26,7 @@ const useUser = (): UseUserStructure => {
   const pathRegister = `${endpoints.users}${endpoints.register}`;
   const dispatch = useAppDispatch();
   const navigateTo = useNavigate();
+  const { deleteToken } = useToken();
 
   const loginUser = async (userCredentials: UserCredentials) => {
     try {
@@ -74,6 +76,7 @@ const useUser = (): UseUserStructure => {
   };
 
   const logoutUser = () => {
+    deleteToken();
     dispatch(logoutUserActionCreator());
     dispatch(
       setModalActionCreator({
