@@ -67,6 +67,7 @@ const RegisterForm = (): JSX.Element => {
             aria-label="email"
             name="email"
             placeholder="Type in your email"
+            autoComplete="email"
             onChange={handleChangeUserData}
           />
         </label>
@@ -80,7 +81,7 @@ const RegisterForm = (): JSX.Element => {
             aria-label="password"
             name="password"
             placeholder="Type in your new password"
-            autoComplete="current-password"
+            autoComplete="new-password"
             onChange={handleChangeUserData}
           />
         </label>
