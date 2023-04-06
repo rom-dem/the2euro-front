@@ -43,7 +43,7 @@ const LoginForm = (): JSX.Element => {
             type="email"
             name="email"
             autoComplete="off"
-            placeholder="Introduce your email adress"
+            placeholder="Type in your email"
             onChange={handleChangeUserData}
             className="form__input"
           />
@@ -55,7 +55,7 @@ const LoginForm = (): JSX.Element => {
           <input
             type="password"
             name="password"
-            placeholder="Introduce your password"
+            placeholder="Type in your password"
             onChange={handleChangeUserData}
             autoComplete="current-password"
             className="form__input"

@@ -25,6 +25,13 @@ beforeAll(() => {
 jest.mock("jwt-decode", () => jest.fn());
 const dispatchSpy = jest.spyOn(store, "dispatch");
 
+const mockedUserNavigate = jest.fn();
+
+jest.mock("react-router-dom", () => ({
+  ...jest.requireActual("react-router-dom"),
+  useNavigate: () => mockedUserNavigate,
+}));
+
 const mockUserCredentials: UserCredentials = {
   email: "test@test.com",
   password: "password1234",
