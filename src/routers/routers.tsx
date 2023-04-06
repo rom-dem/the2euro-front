@@ -7,6 +7,7 @@ import LoginPage from "../pages/LoginPage/LoginPage";
 import CreatePage from "../pages/CreatePage/CreatePage";
 import DetailPage from "../pages/DetailPage/DetailPage";
 import NotFoundPage from "../pages/NotFoundPage/NotFoundPage";
+import RegisterPage from "../pages/RegisterPage/RegisterPage";
 
 const routes: RouteObject[] = [
   {
@@ -18,6 +19,7 @@ const routes: RouteObject[] = [
       { path: endpoints.slash, element: <HomePage /> },
       { path: endpoints.createCoin, element: <CreatePage /> },
       { path: `${endpoints.coin}${endpoints.id}`, element: <DetailPage /> },
+      { path: endpoints.register, element: <RegisterPage /> },
     ],
   },
 ];
