@@ -1,10 +1,10 @@
 # The 2 Euro Collection
 
-[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=isdi-coders-2023_Roman-Demchuk-Final-Project-front-202301-bcn&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=isdi-coders-2023_Roman-Demchuk-Final-Project-front-202301-bcn)
-[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=isdi-coders-2023_Roman-Demchuk-Final-Project-front-202301-bcn&metric=coverage)](https://sonarcloud.io/summary/new_code?id=isdi-coders-2023_Roman-Demchuk-Final-Project-front-202301-bcn)
-[![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=isdi-coders-2023_Roman-Demchuk-Final-Project-front-202301-bcn&metric=sqale_index)](https://sonarcloud.io/summary/new_code?id=isdi-coders-2023_Roman-Demchuk-Final-Project-front-202301-bcn)
-[![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=isdi-coders-2023_Roman-Demchuk-Final-Project-front-202301-bcn&metric=ncloc)](https://sonarcloud.io/summary/new_code?id=isdi-coders-2023_Roman-Demchuk-Final-Project-front-202301-bcn)
-[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=isdi-coders-2023_Roman-Demchuk-Final-Project-front-202301-bcn&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=isdi-coders-2023_Roman-Demchuk-Final-Project-front-202301-bcn)
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=rom-dem_the2euro-front&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=rom-dem_the2euro-front)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=rom-dem_the2euro-front&metric=coverage)](https://sonarcloud.io/summary/new_code?id=rom-dem_the2euro-front)
+[![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=rom-dem_the2euro-front&metric=sqale_index)](https://sonarcloud.io/summary/new_code?id=rom-dem_the2euro-front)
+[![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=rom-dem_the2euro-front&metric=ncloc)](https://sonarcloud.io/summary/new_code?id=rom-dem_the2euro-front)
+[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=rom-dem_the2euro-front&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=rom-dem_the2euro-front)
 
 The 2 Euro Collection is a web application that allows you to keep track of the commemorative 2 euro coins. It is build using React with Redux Toolkit and tested Jest. Styles were made using Styled Components.
 
