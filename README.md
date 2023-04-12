@@ -8,7 +8,7 @@
 
 The 2 Euro Collection is a web application that allows you to keep track of the commemorative 2 euro coins. It is build using React with Redux Toolkit and tested Jest. Styles were made using Styled Components.
 
-[Go to The2Euro](https://roman-demchuk-final-project-202301-bc.netlify.app/)
+[Go to The2Euro](https://the2euro.vercel.app/)
 
 ![Login, Home, Detail](resources/images/the2euro_1.webp)
 ![Create, Modals](resources/images/the2euro_2.webp)
