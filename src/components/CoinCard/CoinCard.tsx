@@ -51,17 +51,21 @@ const CoinCard = ({
       </div>
       {userId === coin.owner && (
         <div className="card__buttons">
-          <Button
-            icon={deleteButton}
-            isDisabled={false}
-            onClick={handleDelete}
-            buttonName={"delete coin"}
-          />
-          <Button
-            icon={editButton}
-            isDisabled={true}
-            buttonName={"edit coin"}
-          />
+          <span>
+            <Button
+              icon={deleteButton}
+              isDisabled={false}
+              onClick={handleDelete}
+              buttonName={"delete coin"}
+            />
+          </span>
+          <span>
+            <Button
+              icon={editButton}
+              isDisabled={true}
+              buttonName={"edit coin"}
+            />
+          </span>
         </div>
       )}
     </CoinCardStyled>
