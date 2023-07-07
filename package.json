@@ -33,7 +33,8 @@
     "test:dev": "react-scripts test --watchAll",
     "test:coverage": "react-scripts test --coverage --watchAll=false",
     "eject": "react-scripts eject",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "cypress:open": "cypress open"
   },
   "eslintConfig": {
     "extends": [
@@ -55,6 +56,8 @@
   },
   "devDependencies": {
     "@types/styled-components": "^5.1.26",
+    "cypress": "^12.12.0",
+    "eslint-plugin-cypress": "^2.13.3",
     "husky": "^8.0.0",
     "lighthouse": "^10.0.2",
     "lint-staged": "^13.1.2",
